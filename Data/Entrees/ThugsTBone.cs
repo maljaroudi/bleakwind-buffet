@@ -8,18 +8,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
     public class ThugsTBone
     {
-        public double Price { get; set; }
+        public double Price { get; }
 
-        public uint Calories { get; set; }
+        public uint Calories { get; }
 
-        public List<String> SpecialInstructions { get; set; }
+        public List<String> SpecialInstructions { get; }
 
         /// <summary>
         /// overrides the ToString method
@@ -30,14 +30,7 @@ namespace Data.Entrees
             return "Thugs T-Bone";
         }
 
-        /// <summary>
-        /// Constructor method basically.
-        /// </summary>
-        //Unsatisfied with this, pattern matching would have been better.
-        public void SpecialEditor()
-        {
-            SpecialInstructions = new List<string>();
-        }
+
         /// <summary>
         /// Constructor for the class, calls the method and change the price and calories
         /// </summary>
@@ -45,7 +38,7 @@ namespace Data.Entrees
         {
             Price = 6.44;
             Calories = 982;
-            SpecialEditor();
+            SpecialInstructions = new List<string>();
         }
     }
 }

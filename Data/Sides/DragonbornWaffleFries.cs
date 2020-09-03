@@ -8,17 +8,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
     public class DragonbornWaffleFries
     {
-        public double Price { get; set; }
+        public double Price { get;  }
 
-        public uint Calories { get; set; }
-        public List<String> SpecialInstructions { get; set; }
+        public uint Calories { get;  }
+        public List<String> SpecialInstructions { get;  }
         public Size Size { get; set; } = Size.Small;
 
         /// <summary>
@@ -29,11 +29,12 @@ namespace Data.Sides
         {
             return $"{Size} Dragonborn Waffle Fries";
         }
+
         /// <summary>
         /// Constructor method basically.
         /// Checks the size and change the price and calories accordingly.
         /// </summary>
-        public void SpecialEditor()
+        public DragonbornWaffleFries()
         {
             SpecialInstructions = new List<string>();
             if (Size == Size.Small)
@@ -51,13 +52,6 @@ namespace Data.Sides
                 Price = 0.96;
                 Calories = 100;
             };
-        }
-        /// <summary>
-        /// Constructor for the class, calls the method to change the price and calories
-        /// </summary>
-        public DragonbornWaffleFries()
-        {
-            SpecialEditor();
         }
     }
 }

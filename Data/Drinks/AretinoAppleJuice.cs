@@ -8,17 +8,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Provides the Aretino Apple Juice product detail
     /// </summary>
     public class AretinoAppleJuice
     {
-        public double Price { get; set; }
+        public double Price { get;  }
 
-        public uint Calories { get; set; }
-        public List<String> SpecialInstructions { get; set; }
+        public uint Calories { get;  }
+        public List<String> SpecialInstructions { get;  }
         public Size Size { get; set; } = Size.Small;
         public bool Ice { get; set; } = false;
 
@@ -31,11 +31,12 @@ namespace Data.Drinks
             return $"{Size} Aretino Apple Juice";
         }
 
+
         /// <summary>
         /// Constructor method basically.
         /// Checks the size and change the price and calories accordingly.
         /// </summary>
-        public void SpecialEditor()
+        public AretinoAppleJuice()
         {
             SpecialInstructions = new List<string>();
             if (Size == Size.Small)
@@ -57,14 +58,6 @@ namespace Data.Drinks
             {
                 SpecialInstructions.Add("Add Ice");
             }
-
-        }
-        /// <summary>
-        /// Constructor for the class, calls the method to change the price and calories
-        /// </summary>
-        public AretinoAppleJuice()
-        {
-            SpecialEditor();
         }
     }
 }

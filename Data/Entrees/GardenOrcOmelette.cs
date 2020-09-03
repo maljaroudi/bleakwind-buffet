@@ -7,18 +7,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
     public class GardenOrcOmelette
     {
-        public double Price { get; set; }
+        public double Price { get;  }
 
-        public uint Calories { get; set; }
+        public uint Calories { get;  }
 
-        public List<String> SpecialInstructions { get; set; }
+        public List<String> SpecialInstructions { get;  }
 
         /// <summary>
         /// overrides the ToString method
@@ -53,6 +53,7 @@ namespace Data.Entrees
         {
             Price = 4.57;
             Calories = 404;
+            SpecialInstructions = new List<string>();
             SpecialEditor();
         }
     }

@@ -7,18 +7,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
     public class DoubleDraugr
     {
-        public double Price { get; set; }
+        public double Price { get;  }
 
-        public uint Calories { get; set; }
+        public uint Calories { get;  }
 
-        public List<String> SpecialInstructions { get; set; }
+        public List<String> SpecialInstructions { get; }
 
         /// <summary>
         /// overrides the ToString method
@@ -63,6 +63,7 @@ namespace Data.Entrees
         {
             Price = 7.32;
             Calories = 843;
+            SpecialInstructions = new List<string>();
             SpecialEditor();
         }
     }

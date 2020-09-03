@@ -8,17 +8,17 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Provides the Markarth Milk product detail
     /// </summary>
     public class MarkarthMilk
     {
-        public double Price { get; set; }
+        public double Price { get;  }
 
-        public uint Calories { get; set; }
-        public List<String> SpecialInstructions { get; set; }
+        public uint Calories { get;  }
+        public List<String> SpecialInstructions { get;  }
         public Size Size { get; set; } = Size.Small;
         public bool Ice { get; set; } = false;
         /// <summary>
@@ -30,10 +30,12 @@ namespace Data.Drinks
             
             return $"{Size} Markarth Milk";
         }
+
+
         /// <summary>
-        /// Checks the Sizes and sets the calories / prices / Special Instructions accordingly 
+        /// Constructor, Checks the Sizes and sets the calories / prices / Special Instructions accordingly
         /// </summary>
-        public void SpecialEditor()
+        public MarkarthMilk()
         {
             SpecialInstructions = new List<string>();
             if (Size == Size.Small)
@@ -55,14 +57,7 @@ namespace Data.Drinks
             {
                 SpecialInstructions.Add("Add Ice");
             }
-
-        }
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public MarkarthMilk()
-        {
-            SpecialEditor();
+            
         }
     }
 }

@@ -7,17 +7,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Provides the Candlehearth Coffee product detail
     /// </summary>
     public class CandlehearthCoffee
     {
-        public double Price { get; set; }
+        public double Price { get; }
 
-        public uint Calories { get; set; }
-        public List<String> SpecialInstructions { get; set; }
+        public uint Calories { get; }
+        public List<String> SpecialInstructions { get;  }
         public Size Size { get; set; } = Size.Small;
         public bool Ice { get; set; } = false;
         public bool RoomForCream { get; set; } = false;
@@ -32,11 +32,12 @@ namespace Data.Drinks
             if (Decaf == true) return $"{Size} Decaf Candlehearth Coffee";
             else return $"{Size} Candlehearth Coffee";
         }
+
         /// <summary>
         /// Constructor method basically.
         /// Checks the size and change the price and calories accordingly.
         /// </summary>
-        public void SpecialEditor()
+        public CandlehearthCoffee()
         {
             SpecialInstructions = new List<string>();
             if (Size == Size.Small)
@@ -62,14 +63,7 @@ namespace Data.Drinks
             {
                 SpecialInstructions.Add("Add Cream");
             }
-
-        }
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public CandlehearthCoffee()
-        {
-            SpecialEditor();
+            
         }
     }
 }

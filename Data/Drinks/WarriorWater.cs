@@ -8,17 +8,17 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Provides the Warrior Water product detail
     /// </summary>
     public class WarriorWater
     {
-        public double Price { get; set; }
+        public double Price { get;  }
 
-        public uint Calories { get; set; }
-        public List<String> SpecialInstructions { get; set; }
+        public uint Calories { get;  }
+        public List<String> SpecialInstructions { get;  }
         public Size Size { get; set; } = Size.Small;
         public bool Ice { get; set; } = true;
         public bool Lemon { get; set; } = false;
@@ -36,8 +36,6 @@ namespace Data.Drinks
         /// </summary>
         public void SpecialEditor()
         {
-            SpecialInstructions = new List<string>();
-            Price = 0;
 
             if (Ice == false)
             {
@@ -54,6 +52,8 @@ namespace Data.Drinks
         /// </summary>
         public WarriorWater()
         {
+            SpecialInstructions = new List<string>();
+            Price = 0;
             SpecialEditor();
         }
     }

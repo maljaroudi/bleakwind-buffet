@@ -7,18 +7,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
     public class BriarheartBurger
     {
-        public double Price { get; set; }
+        public double Price { get;  }
 
-        public uint Calories { get; set; }
+        public uint Calories { get;  }
 
-        public List<String> SpecialInstructions { get; set; }
+        public List<String> SpecialInstructions { get; }
 
         /// <summary>
         /// overrides the ToString method
@@ -42,7 +42,6 @@ namespace Data.Entrees
         //Unsatisfied with this, pattern matching would have been better.
         public void SpecialEditor()
         {
-            List<String> SpecialInstructions = new List<string>();
             if (Bun == false) SpecialInstructions.Add("Hold Bun");
             if (Ketchup == false) SpecialInstructions.Add("Hold Ketchup");
             if (Mustard == false) SpecialInstructions.Add("Hold Mustard");
@@ -57,6 +56,7 @@ namespace Data.Entrees
         {
             Price = 6.32;
             Calories = 743;
+            SpecialInstructions = new List<string>();
             SpecialEditor();
         }
         //implement false if for boolean
