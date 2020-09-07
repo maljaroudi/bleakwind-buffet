@@ -15,11 +15,19 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThugsTBone
     {
-        public double Price { get; }
+        /// <summary>
+        /// Price initalizer, sets the price for the entree
+        /// </summary>
+        public double Price { get; } = 6.44;
+        /// <summary>
+        /// calorie to show how many colories, initalized.
+        /// </summary>
+        public uint Calories { get; } = 982;
 
-        public uint Calories { get; }
-
-        public List<String> SpecialInstructions { get; }
+        /// <summary>
+        /// List of special instructions, non there is. so it's empty.
+        /// </summary>
+        public List<String> SpecialInstructions { get; } = new List<string>();
 
         /// <summary>
         /// overrides the ToString method
@@ -31,14 +39,5 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
 
-        /// <summary>
-        /// Constructor for the class, calls the method and change the price and calories
-        /// </summary>
-        public ThugsTBone()
-        {
-            Price = 6.44;
-            Calories = 982;
-            SpecialInstructions = new List<string>();
-        }
     }
 }

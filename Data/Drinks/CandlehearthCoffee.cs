@@ -14,13 +14,88 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class CandlehearthCoffee
     {
-        public double Price { get; }
+        /// <summary>
+        /// Sets price in relation to size of item
+        /// </summary>
+        public double Price
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return 0.75;
 
-        public uint Calories { get; }
-        public List<String> SpecialInstructions { get;  }
+                }
+
+                else if (Size == Size.Medium)
+                {
+                    return 1.25;
+                }
+                else
+                {
+                    return 1.75;
+                }
+            }
+
+        }
+        /// <summary>
+        /// sets calories in relation to size 
+        /// </summary>
+        public uint Calories
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return 7;
+
+                }
+
+                else if (Size == Size.Medium)
+                {
+                    return 10;
+                }
+                else
+                {
+                    return 20;
+                }
+            }
+        }
+        /// <summary>
+        /// sets special instructions when the Ice, RoomForCream are checked.
+        /// If ice is needed, it adds ice, if not, it holds it. If cream is ineeded, it add instructions, if not it adds hold.
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (Ice) SpecialInstructions.Add("Add ice");
+                if (!Ice) SpecialInstructions.Add("Hold ice");
+
+                if (RoomForCream) SpecialInstructions.Add("Add cream");
+                if (!RoomForCream) SpecialInstructions.Add("Hold cream");
+
+                return SpecialInstructions;
+            }
+
+        }
+        /// <summary>
+        /// Size of drink, default to small
+        /// </summary>
         public Size Size { get; set; } = Size.Small;
+        /// <summary>
+        /// Whether the costumer needs ice default to no.
+        /// </summary>
         public bool Ice { get; set; } = false;
+        /// <summary>
+        /// Whether Cream is wanted, default is false.
+        /// </summary>
         public bool RoomForCream { get; set; } = false;
+
+        /// <summary>
+        /// Whether the coffee is decaf, default to false.
+        /// </summary>
         public bool Decaf { get; set; } = false;
 
         /// <summary>
@@ -33,37 +108,6 @@ namespace BleakwindBuffet.Data.Drinks
             else return $"{Size} Candlehearth Coffee";
         }
 
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the size and change the price and calories accordingly.
-        /// </summary>
-        public CandlehearthCoffee()
-        {
-            SpecialInstructions = new List<string>();
-            if (Size == Size.Small)
-            {
-                Price = 0.75;
-                Calories = 7;
-            }
-            else if (Size == Size.Medium)
-            {
-                Price = 1.25;
-                Calories = 10;
-            }
-            else
-            {
-                Price = 1.75;
-                Calories = 20;
-            };
-            if (Ice == true)
-            {
-                SpecialInstructions.Add("Add Ice");
-            }
-            if (RoomForCream == true)
-            {
-                SpecialInstructions.Add("Add Cream");
-            }
-            
-        }
+        
     }
 }

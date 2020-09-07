@@ -15,11 +15,78 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class MarkarthMilk
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Price in relation to size of the drink
+        /// </summary>
+        public double Price
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return 1.05;
 
-        public uint Calories { get;  }
-        public List<String> SpecialInstructions { get;  }
+                }
+
+                else if (Size == Size.Medium)
+                {
+                    return 1.11;
+                }
+                else
+                {
+                    return 1.22;
+                }
+            }
+
+        }
+        /// <summary>
+        /// Calories in relation to size of the drink
+        /// </summary>
+        public uint Calories
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return 56;
+
+                }
+
+                else if (Size == Size.Medium)
+                {
+                    return 72;
+                }
+                else
+                {
+                    return 93;
+                }
+            }
+        }
+        /// <summary>
+        /// Special instructions. 
+        /// It adds "Add ice" when ice is needed, otherwise it shows empty list.
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (!Ice) return SpecialInstructions;
+                else
+                {
+                    SpecialInstructions.Add("Add ice");
+                }
+                return SpecialInstructions;
+            }
+
+        }
+        /// <summary>
+        /// Size, defaults to small
+        /// </summary>
         public Size Size { get; set; } = Size.Small;
+        /// <summary>
+        /// Ice option, defaults to false.
+        /// </summary>
         public bool Ice { get; set; } = false;
         /// <summary>
         /// Overrisde ToString() to show the product name
@@ -32,32 +99,5 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
 
-        /// <summary>
-        /// Constructor, Checks the Sizes and sets the calories / prices / Special Instructions accordingly
-        /// </summary>
-        public MarkarthMilk()
-        {
-            SpecialInstructions = new List<string>();
-            if (Size == Size.Small)
-            {
-                Price = 1.05;
-                Calories = 56;
-            }
-            else if (Size == Size.Medium)
-            {
-                Price = 1.11;
-                Calories = 72;
-            }
-            else
-            {
-                Price = 1.22;
-                Calories = 93;
-            };
-            if (Ice == true)
-            {
-                SpecialInstructions.Add("Add Ice");
-            }
-            
-        }
     }
 }

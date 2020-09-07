@@ -15,12 +15,47 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class WarriorWater
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Price, set to 0 accross all options.
+        /// </summary>
+        public double Price
+        {
+            get;
 
-        public uint Calories { get;  }
-        public List<String> SpecialInstructions { get;  }
+        } = 0;
+        /// <summary>
+        /// Calories, Set to 0 across all options
+        /// </summary>
+        public uint Calories { get; } = 0;
+        /// <summary>
+        /// Water comes with ice, therefore this adds instruction for holding ice and adding lemon option when needed. 
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (Ice && !Lemon) return SpecialInstructions;
+                else
+                {
+                    SpecialInstructions.Add("Hold ice");
+                    if (Lemon) SpecialInstructions.Add("Add lemon");
+                }
+                return SpecialInstructions;
+            }
+
+        }
+        /// <summary>
+        /// Size, defaults to small, can be changed to medium and large
+        /// </summary>
         public Size Size { get; set; } = Size.Small;
+        /// <summary>
+        /// Ice, defaults to true
+        /// </summary>
         public bool Ice { get; set; } = true;
+        /// <summary>
+        /// Lemon, Defaults to false.
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
         /// <summary>
@@ -31,30 +66,6 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return $"{Size} Warrior Water";
         }
-        /// <summary>
-        /// Checks the Sizes and sets the calories / prices / Special Instructions accordingly 
-        /// </summary>
-        public void SpecialEditor()
-        {
 
-            if (Ice == false)
-            {
-                SpecialInstructions.Add("Hold Ice");
-            }
-            if (Lemon == true)
-            {
-                SpecialInstructions.Add("Add Lemon");
-            }
-
-        }
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public WarriorWater()
-        {
-            SpecialInstructions = new List<string>();
-            Price = 0;
-            SpecialEditor();
-        }
     }
 }

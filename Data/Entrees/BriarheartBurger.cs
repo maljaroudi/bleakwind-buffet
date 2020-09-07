@@ -14,11 +14,32 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Price same across all options
+        /// </summary>
+        public double Price { get;  } = 6.32;
+        /// <summary>
+        /// Sets calories and keeps it private
+        /// </summary>
+        public uint Calories { get;  } = 743;
 
-        public uint Calories { get;  }
+        /// <summary>
+        /// Adds special instructions for removing bun, Ketchup, Mustard, Pickle, Cheese
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (Bun == false) SpecialInstructions.Add("Hold bun");
+                if (Ketchup == false) SpecialInstructions.Add("Hold ketchup");
+                if (Mustard == false) SpecialInstructions.Add("Hold mustard");
+                if (Pickle == false) SpecialInstructions.Add("Hold pickle");
+                if (Cheese == false) SpecialInstructions.Add("Hold cheese");
+                return SpecialInstructions;
+            }
 
-        public List<String> SpecialInstructions { get; }
+        }
 
         /// <summary>
         /// overrides the ToString method
@@ -28,39 +49,29 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Briarheart Burger";
         }
-
+        /// <summary>
+        /// Bun option, default to true
+        /// </summary>
         public bool Bun { get; set; } = true;
+        /// <summary>
+        /// Ketchup option, defaults to true
+        /// </summary>
         public bool Ketchup { get; set; } = true;
+        /// <summary>
+        /// Mustard option, defaults to true    
+        /// </summary>
         public bool Mustard { get; set; } = true;
+        /// <summary>
+        /// Pickle Option, defaults to true
+        /// </summary>
         public bool Pickle { get; set; } = true;
+        /// <summary>
+        /// Cheese option, defaults to true
+        /// </summary>
         public bool Cheese { get; set; } = true;
 
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the options and add them to the special instructions.
-        /// </summary>
-        //Unsatisfied with this, pattern matching would have been better.
-        public void SpecialEditor()
-        {
-            if (Bun == false) SpecialInstructions.Add("Hold Bun");
-            if (Ketchup == false) SpecialInstructions.Add("Hold Ketchup");
-            if (Mustard == false) SpecialInstructions.Add("Hold Mustard");
-            if (Pickle == false) SpecialInstructions.Add("Hold Pickle");
-            if (Cheese == false) SpecialInstructions.Add("Hold Cheese");
 
-        }
-        /// <summary>
-        /// Constructor for the class, calls the method and change the price and calories
-        /// </summary>
-        public BriarheartBurger()
-        {
-            Price = 6.32;
-            Calories = 743;
-            SpecialInstructions = new List<string>();
-            SpecialEditor();
-        }
-        //implement false if for boolean
-        
+
 
 
 

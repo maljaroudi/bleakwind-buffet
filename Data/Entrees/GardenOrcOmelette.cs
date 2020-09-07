@@ -14,11 +14,31 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class GardenOrcOmelette
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Price initializer and property, set to the price for all options
+        /// </summary>
+        public double Price { get;  } = 4.57;
+        /// <summary>
+        /// Calories property to show how many calories, set to all options
+        /// </summary>
+        public uint Calories { get;  } = 404;
 
-        public uint Calories { get;  }
+        /// <summary>
+        /// List of special instructions modified when user doesn't want the boolean properties. If the user doesn't want an option it adds hold to it in the list. Otherwise, it states nothing
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (Broccoli == false) SpecialInstructions.Add("Hold broccoli");
+                if (Mushrooms == false) SpecialInstructions.Add("Hold mushrooms");
+                if (Tomato == false) SpecialInstructions.Add("Hold tomato");
+                if (Cheddar == false) SpecialInstructions.Add("Hold cheddar");
+                return SpecialInstructions;
+            }
 
-        public List<String> SpecialInstructions { get;  }
+        }
 
         /// <summary>
         /// overrides the ToString method
@@ -28,33 +48,23 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Garden Orc Omelette";
         }
-
+        /// <summary>
+        /// Broccoli Option, defaults to true
+        /// </summary>
         public bool Broccoli { get; set; } = true;
+        /// <summary>
+        /// Mushroom option, defaults to true
+        /// </summary>
         public bool Mushrooms { get; set; } = true;
+        /// <summary>
+        /// Tomato option, defaults to true
+        /// </summary>
         public bool Tomato { get; set; } = true;
+        /// <summary>
+        /// Cheddar option, defaults to true
+        /// </summary>
         public bool Cheddar { get; set; } = true;
-        
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the options and add them to the special instructions.
-        /// </summary>
-        //Unsatisfied with this, pattern matching would have been better.
-        public void SpecialEditor()
-        {
-            if (Broccoli == false) SpecialInstructions.Add("Hold Broccoli");
-            if (Mushrooms == false) SpecialInstructions.Add("Hold Mushrooms");
-            if (Tomato == false) SpecialInstructions.Add("Hold Tomato");
-            if (Cheddar == false) SpecialInstructions.Add("Hold Cheddar");
-        }
-        /// <summary>
-        /// Constructor for the class, calls the method and change the price and calories
-        /// </summary>
-        public GardenOrcOmelette()
-        {
-            Price = 4.57;
-            Calories = 404;
-            SpecialInstructions = new List<string>();
-            SpecialEditor();
-        }
+
+
     }
 }

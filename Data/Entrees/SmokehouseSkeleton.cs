@@ -15,11 +15,32 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class SmokehouseSkeleton
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Price initalizer sets it across all options
+        /// </summary>
+        public double Price { get;  } = 5.62;
 
-        public uint Calories { get; }
+        /// <summary>
+        /// Calories to show how many calories in the dish
+        /// </summary>
+        public uint Calories { get; } = 602;
 
-        public List<String> SpecialInstructions { get;  }
+        /// <summary>
+        /// Special instructions in case the customer doesn't want an option. it adds "hold [item]" for each item he doesn't want
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (SausageLink == false) SpecialInstructions.Add("Hold sausage");
+                if (HashBrowns == false) SpecialInstructions.Add("Hold hash browns");
+                if (Pancake == false) SpecialInstructions.Add("Hold pancakes");
+                if (Egg == false) SpecialInstructions.Add("Hold eggs");
+                return SpecialInstructions;
+            }
+
+        }
 
         /// <summary>
         /// overrides the ToString method
@@ -29,33 +50,24 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Smokehouse Skeleton";
         }
-
+        /// <summary>
+        /// Sausage option, defaults to true
+        /// </summary>
         public bool SausageLink { get; set; } = true;
+        /// <summary>
+        /// Hash browns option, set to true
+        /// </summary>
         public bool HashBrowns { get; set; } = true;
+        /// <summary>
+        /// Pancake option, defaults to true
+        /// </summary>
         public bool Pancake { get; set; } = true;
+        /// <summary>
+        /// egg option, set to true
+        /// </summary>
         public bool Egg { get; set; } = true;
 
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the options and add them to the special instructions.
-        /// </summary>
-        //Unsatisfied with this, pattern matching would have been better.
-        public void SpecialEditor()
-        {
-            if (SausageLink == false) SpecialInstructions.Add("Hold sausage");
-            if (HashBrowns == false) SpecialInstructions.Add("Hold hash browns");
-            if (Pancake == false) SpecialInstructions.Add("Hold pancakes");
-            if (Egg == false) SpecialInstructions.Add("Hold eggs");
-        }
-        /// <summary>
-        /// Constructor for the class, calls the method and change the price and calories
-        /// </summary>
-        public SmokehouseSkeleton()
-        {
-            Price = 5.62;
-            Calories = 602;
-            SpecialInstructions = new List<string>();
-            SpecialEditor();
-        }
+
+
     }
 }

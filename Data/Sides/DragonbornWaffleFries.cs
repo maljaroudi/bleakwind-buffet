@@ -15,10 +15,60 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class DragonbornWaffleFries
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Sets the price in relation to the size of the side. 
+        /// </summary>
+        public double Price
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return 0.42;
 
-        public uint Calories { get;  }
-        public List<String> SpecialInstructions { get;  }
+                }
+
+                else if (Size == Size.Medium)
+                {
+                    return 0.76;
+                }
+                else
+                {
+                    return 0.96;
+                }
+            }
+
+        }
+        /// <summary>
+        /// sets the calories in terms of the size 
+        /// </summary>
+        public uint Calories
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return 77;
+
+                }
+
+                else if (Size == Size.Medium)
+                {
+                    return 89;
+                }
+                else
+                {
+                    return 100;
+                }
+            }
+        }
+        /// <summary>
+        /// special instruction list, there is non for this item, so it's empty.
+        /// </summary>
+        public List<String> SpecialInstructions { get; } = new List<string>();
+        /// <summary>
+        /// size of the item in enum Size
+        /// </summary>
         public Size Size { get; set; } = Size.Small;
 
         /// <summary>
@@ -30,28 +80,6 @@ namespace BleakwindBuffet.Data.Sides
             return $"{Size} Dragonborn Waffle Fries";
         }
 
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the size and change the price and calories accordingly.
-        /// </summary>
-        public DragonbornWaffleFries()
-        {
-            SpecialInstructions = new List<string>();
-            if (Size == Size.Small)
-            {
-                Price = 0.42;
-                Calories = 77;
-            }
-            else if (Size == Size.Medium)
-            {
-                Price = 0.76;
-                Calories = 89;
-            }
-            else
-            {
-                Price = 0.96;
-                Calories = 100;
-            };
-        }
+
     }
 }

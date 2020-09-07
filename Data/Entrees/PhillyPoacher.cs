@@ -10,15 +10,35 @@ using System.Text;
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
-    /// Provides the product detail
+    /// Provides the Philly Poacher details
     /// </summary>
     public class PhillyPoacher
     {
-        public double Price { get; }
+        /// <summary>
+        /// Price initalizer for price set across all options
+        /// </summary>
+        public double Price { get; } = 7.23;
 
-        public uint Calories { get;  }
+        /// <summary>
+        /// Calories initializer for all options
+        /// </summary>
+        public uint Calories { get;  } = 784;
 
-        public List<String> SpecialInstructions { get;  }
+        /// <summary>
+        /// Special instructions list when the costumer doesn't want an option. It adds hold for every option to the list. Otherwise, it doesn't show anything about it.
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (Sirloin == false) SpecialInstructions.Add("Hold sirloin");
+                if (Onion == false) SpecialInstructions.Add("Hold onions");
+                if (Roll == false) SpecialInstructions.Add("Hold roll");
+                return SpecialInstructions;
+            }
+
+        }
 
         /// <summary>
         /// overrides the ToString method
@@ -28,32 +48,21 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Philly Poacher";
         }
-
+        /// <summary>
+        /// Sirloin option, default to true
+        /// </summary>
         public bool Sirloin { get; set; } = true;
+        /// <summary>
+        /// Onion option, defaults to true
+        /// </summary>
         public bool Onion { get; set; } = true;
+        /// <summary>
+        /// Roll option, defaults to true
+        /// </summary>
         public bool Roll { get; set; } = true;
 
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the options and add them to the special instructions.
-        /// </summary>
-        //Unsatisfied with this, pattern matching would have been better.
-        public void SpecialEditor()
-        {
-            if (Sirloin == false) SpecialInstructions.Add("Hold Sirloin");
-            if (Onion == false) SpecialInstructions.Add("Hold Onions");
-            if (Roll == false) SpecialInstructions.Add("Hold Roll");
-        }
 
-        /// <summary>
-        /// Constructor for the class, calls the method and change the price and calories
-        /// </summary>
-        public PhillyPoacher()
-        {
-            Price = 7.23;
-            Calories = 784;
-            SpecialInstructions = new List<string>();
-            SpecialEditor();
-        }
+
+
     }
 }

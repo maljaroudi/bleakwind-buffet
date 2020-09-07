@@ -15,10 +15,60 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class MadOtarGrits
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Price in relation to the size.
+        /// </summary>
+        public double Price
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return 1.22;
 
-        public uint Calories { get;  }
-        public List<String> SpecialInstructions { get;  }
+                }
+
+                else if (Size == Size.Medium)
+                {
+                    return 1.58;
+                }
+                else
+                {
+                    return 1.93;
+                }
+            }
+
+        }
+        /// <summary>
+        /// Calories in relation to the size
+        /// </summary>
+        public uint Calories
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return 105;
+
+                }
+
+                else if (Size == Size.Medium)
+                {
+                    return 142;
+                }
+                else
+                {
+                    return 179;
+                }
+            }
+        }
+        /// <summary>
+        /// Special instruction list, empty because there is non.
+        /// </summary>
+        public List<String> SpecialInstructions { get; } = new List<string>();
+        /// <summary>
+        /// Size as enum Size.
+        /// </summary>
         public Size Size { get; set; } = Size.Small;
 
         /// <summary>
@@ -31,28 +81,5 @@ namespace BleakwindBuffet.Data.Sides
         }
 
 
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the size and change the price and calories accordingly.
-        /// </summary>
-        public MadOtarGrits()
-        {
-            SpecialInstructions = new List<string>();
-            if (Size == Size.Small)
-            {
-                Price = 1.22;
-                Calories = 105;
-            }
-            else if (Size == Size.Medium)
-            {
-                Price = 1.58;
-                Calories = 142;
-            }
-            else
-            {
-                Price = 1.93;
-                Calories = 179;
-            };
-        }
     }
 }

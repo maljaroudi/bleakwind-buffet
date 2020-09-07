@@ -14,11 +14,35 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class DoubleDraugr
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Price, set privately across all options
+        /// </summary>
+        public double Price { get;  } = 7.32;
+        /// <summary>
+        /// Initializes the calories across all options
+        /// </summary>
+        public uint Calories { get;  } = 843;
 
-        public uint Calories { get;  }
+        /// <summary>
+        /// Adds special instructions in case of removing Bun, Ketchup, Mustard, Pickles, Cheese, Tomato, Lettuce, Mayo. Otherwise, returns empty list.
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (Bun == false) SpecialInstructions.Add("Hold bun");
+                if (Ketchup == false) SpecialInstructions.Add("Hold ketchup");
+                if (Mustard == false) SpecialInstructions.Add("Hold mustard");
+                if (Pickle == false) SpecialInstructions.Add("Hold pickle");
+                if (Cheese == false) SpecialInstructions.Add("Hold cheese");
+                if (Tomato == false) SpecialInstructions.Add("Hold tomato");
+                if (Lettuce == false) SpecialInstructions.Add("Hold lettuce");
+                if (Mayo == false) SpecialInstructions.Add("Hold mayo");
+                return SpecialInstructions;
+            }
 
-        public List<String> SpecialInstructions { get; }
+        }
 
         /// <summary>
         /// overrides the ToString method
@@ -28,43 +52,40 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Double Draugr";
         }
-
+        /// <summary>
+        /// Bun option, defaults to true
+        /// </summary>
         public bool Bun { get; set; } = true;
+        /// <summary>
+        /// Ketchup Option, defaults to true
+        /// </summary>
         public bool Ketchup { get; set; } = true;
+        /// <summary>
+        /// Mustard option, defaults to true
+        /// </summary>
         public bool Mustard { get; set; } = true;
+        /// <summary>
+        /// Pickle option, defaults to true
+        /// </summary>
         public bool Pickle { get; set; } = true;
+        /// <summary>
+        /// Cheese option, defaults to true
+        /// </summary>
         public bool Cheese { get; set; } = true;
+        /// <summary>
+        /// Tomato option, defaults to true
+        /// </summary>
         public bool Tomato { get; set; } = true;
+        /// <summary>
+        /// Lettuce option, defaults to true
+        /// </summary>
         public bool Lettuce { get; set; } = true;
-
+        /// <summary>
+        /// Mayo option, defaults to true
+        /// </summary>
         public bool Mayo { get; set; } = true;
 
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the options and add them to the special instructions.
-        /// </summary>
-        //Unsatisfied with this, pattern matching would have been better.
-        public void SpecialEditor()
-        {
-            if (Bun == false) SpecialInstructions.Add("Hold Bun");
-            if (Ketchup == false) SpecialInstructions.Add("Hold Ketchup");
-            if (Mustard == false) SpecialInstructions.Add("Hold Mustard");
-            if (Pickle == false) SpecialInstructions.Add("Hold Pickle");
-            if (Cheese == false) SpecialInstructions.Add("Hold Cheese");
-            if (Tomato == false) SpecialInstructions.Add("Hold Tomato");
-            if (Lettuce == false) SpecialInstructions.Add("Hold Lettuce");
-            if (Mayo == false) SpecialInstructions.Add("Hold Mayo");
-        }
 
-        /// <summary>
-        /// Constructor for the class, calls the method and change the price and calories
-        /// </summary>
-        public DoubleDraugr()
-        {
-            Price = 7.32;
-            Calories = 843;
-            SpecialInstructions = new List<string>();
-            SpecialEditor();
-        }
+
     }
 }

@@ -14,12 +14,39 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThalmorTriple
     {
-        public double Price { get;  }
+        /// <summary>
+        /// Price initalizer sets it across all options
+        /// </summary>
+        public double Price { get;  } = 8.32;
 
-        public uint Calories { get;  }
+        /// <summary>
+        /// Calories to show how many calories in the dish 
+        /// </summary>
+        public uint Calories { get;  } = 943;
 
-        public List<String> SpecialInstructions { get; }
-        
+        /// <summary>
+        /// Adds special instructions whenever the costumer doesn't want an item. It adds "hold" and append it to the list.
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> SpecialInstructions = new List<string>();
+                if (Bun == false) SpecialInstructions.Add("Hold bun");
+                if (Ketchup == false) SpecialInstructions.Add("Hold ketchup");
+                if (Mustard == false) SpecialInstructions.Add("Hold mustard");
+                if (Pickle == false) SpecialInstructions.Add("Hold pickle");
+                if (Cheese == false) SpecialInstructions.Add("Hold cheese");
+                if (Tomato == false) SpecialInstructions.Add("Hold tomato");
+                if (Lettuce == false) SpecialInstructions.Add("Hold lettuce");
+                if (Mayo == false) SpecialInstructions.Add("Hold mayo");
+                if (Bacon == false) SpecialInstructions.Add("Hold bacon");
+                if (Egg == false) SpecialInstructions.Add("Hold eggs");
+                return SpecialInstructions;
+            }
+
+        }
+
         /// <summary>
         /// overrides the ToString method
         /// </summary>
@@ -28,46 +55,49 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Thalmor Triple";
         }
-
+        /// <summary>
+        /// Bun option, set to true
+        /// </summary>
         public bool Bun { get; set; } = true;
+        /// <summary>
+        /// Ketchup option, set to true
+        /// </summary>
         public bool Ketchup { get; set; } = true;
+        /// <summary>
+        /// mustard option, set to true
+        /// </summary>
         public bool Mustard { get; set; } = true;
+        /// <summary>
+        /// pickles option, set to true
+        /// </summary>
         public bool Pickle { get; set; } = true;
+        /// <summary>
+        /// Cheese option, set to true
+        /// </summary>
         public bool Cheese { get; set; } = true;
+        /// <summary>
+        /// tomato option, set to true
+        /// </summary>
         public bool Tomato { get; set; } = true;
+        /// <summary>
+        /// lettuce option, set to true
+        /// </summary>
         public bool Lettuce { get; set; } = true;
+        /// <summary>
+        /// mayo option, set to true
+        /// </summary>
         public bool Mayo { get; set; } = true; 
+        /// <summary>
+        /// bacon option, set to true
+        /// </summary>
         public bool Bacon { get; set; } = true;
+        /// <summary>
+        /// eggs option, set to true
+        /// </summary>
         public bool Egg { get; set; } = true;
         
-        /// <summary>
-        /// Constructor method basically.
-        /// Checks the options and add them to the special instructions.
-        /// </summary>
-        //Unsatisfied with this, pattern matching would have been better.
-        public void SpecialEditor()
-        {
-            if (Bun == false) SpecialInstructions.Add("Hold Bun");
-            if (Ketchup == false) SpecialInstructions.Add("Hold Ketchup");
-            if (Mustard == false) SpecialInstructions.Add("Hold Mustard");
-            if (Pickle == false) SpecialInstructions.Add("Hold Pickle");
-            if (Cheese == false) SpecialInstructions.Add("Hold Cheese");
-            if (Tomato == false) SpecialInstructions.Add("Hold Tomato");
-            if (Lettuce == false) SpecialInstructions.Add("Hold Lettuce");
-            if (Mayo == false) SpecialInstructions.Add("Hold Mayo");
-            if (Bacon == false) SpecialInstructions.Add("Hold Bacon");
-            if (Egg == false) SpecialInstructions.Add("Hold Egg");
-        }
 
-        /// <summary>
-        /// Constructor for the class, calls the method and change the price and calories
-        /// </summary>
-        public ThalmorTriple()
-        {
-            Price = 8.32;
-            Calories = 943;
-            SpecialInstructions = new List<string>();
-            SpecialEditor();
-        }
+
+
     }
 }
