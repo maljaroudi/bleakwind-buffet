@@ -13,21 +13,21 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class ThugsTBone
+    public class ThugsTBone : Entree
     {
         /// <summary>
         /// Price initalizer, sets the price for the entree
         /// </summary>
-        public double Price { get; } = 6.44;
+        public override double Price { get; } = 6.44;
         /// <summary>
         /// calorie to show how many colories, initalized.
         /// </summary>
-        public uint Calories { get; } = 982;
+        public override uint Calories { get; } = 982;
 
         /// <summary>
         /// List of special instructions, non there is. so it's empty.
         /// </summary>
-        public List<String> SpecialInstructions { get; } = new List<string>();
+        public override List<String> SpecialInstructions { get; } = new List<string>();
 
         /// <summary>
         /// overrides the ToString method

@@ -12,12 +12,12 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class VokunSalad
+    public class VokunSalad : Side
     {
         /// <summary>
         /// Price in relation to the size
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -41,7 +41,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// calories in relation to the size
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -64,7 +64,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Special instruction, there is non, so it's empty.
         /// </summary>
-        public List<String> SpecialInstructions { get; } = new List<string>();
+        public override List<String> SpecialInstructions { get; } = new List<string>();
         /// <summary>
         /// Size as Enum Size. defaults to small
         /// </summary>

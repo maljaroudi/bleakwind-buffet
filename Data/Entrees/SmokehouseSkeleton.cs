@@ -13,22 +13,22 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree
     {
         /// <summary>
         /// Price initalizer sets it across all options
         /// </summary>
-        public double Price { get;  } = 5.62;
+        public override double Price { get;  } = 5.62;
 
         /// <summary>
         /// Calories to show how many calories in the dish
         /// </summary>
-        public uint Calories { get; } = 602;
+        public override uint Calories { get; } = 602;
 
         /// <summary>
         /// Special instructions in case the customer doesn't want an option. it adds "hold [item]" for each item he doesn't want
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {

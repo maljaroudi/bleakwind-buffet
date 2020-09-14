@@ -12,21 +12,21 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class BriarheartBurger
+    public class BriarheartBurger : Entree 
     {
         /// <summary>
         /// Price same across all options
         /// </summary>
-        public double Price { get;  } = 6.32;
+        public override double Price { get;  } = 6.32;
         /// <summary>
         /// Sets calories and keeps it private
         /// </summary>
-        public uint Calories { get;  } = 743;
+        public override uint Calories { get;  } = 743;
 
         /// <summary>
         /// Adds special instructions for removing bun, Ketchup, Mustard, Pickle, Cheese
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {

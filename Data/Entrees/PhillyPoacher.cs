@@ -12,22 +12,22 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the Philly Poacher details
     /// </summary>
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree
     {
         /// <summary>
         /// Price initalizer for price set across all options
         /// </summary>
-        public double Price { get; } = 7.23;
+        public override double Price { get; } = 7.23;
 
         /// <summary>
         /// Calories initializer for all options
         /// </summary>
-        public uint Calories { get;  } = 784;
+        public override uint Calories { get;  } = 784;
 
         /// <summary>
         /// Special instructions list when the costumer doesn't want an option. It adds hold for every option to the list. Otherwise, it doesn't show anything about it.
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {

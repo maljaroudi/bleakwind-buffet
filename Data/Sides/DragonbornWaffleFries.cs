@@ -13,12 +13,12 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class DragonbornWaffleFries
+    public class DragonbornWaffleFries : Side
     {
         /// <summary>
         /// Sets the price in relation to the size of the side. 
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// sets the calories in terms of the size 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -65,11 +65,8 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// special instruction list, there is non for this item, so it's empty.
         /// </summary>
-        public List<String> SpecialInstructions { get; } = new List<string>();
-        /// <summary>
-        /// size of the item in enum Size
-        /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public override List<String> SpecialInstructions { get; } = new List<string>();
+
 
         /// <summary>
         /// overrised the ToString method

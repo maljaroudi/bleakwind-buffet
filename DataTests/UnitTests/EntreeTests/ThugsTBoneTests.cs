@@ -6,6 +6,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -39,6 +40,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone entree = new ThugsTBone();
             Assert.Equal("Thugs T-Bone", entree.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToInterfaceClass()
+        {
+            ThugsTBone entree = new ThugsTBone();
+            Assert.IsAssignableFrom<IOrderItem>(entree);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            ThugsTBone entree = new ThugsTBone();
+            Assert.IsAssignableFrom<Entree>(entree);
         }
     }
 }

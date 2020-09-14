@@ -7,6 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -67,6 +68,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             FriedMiraak side = new FriedMiraak();
             side.Size = size;
             Assert.Equal(name, $"{size} Fried Miraak");
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToInterfaceClass()
+        {
+            FriedMiraak side = new FriedMiraak();
+            Assert.IsAssignableFrom<IOrderItem>(side);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            FriedMiraak side = new FriedMiraak();
+            Assert.IsAssignableFrom<Side>(side);
         }
     }
 }

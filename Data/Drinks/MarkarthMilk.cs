@@ -13,12 +13,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Provides the Markarth Milk product detail
     /// </summary>
-    public class MarkarthMilk
+    public class MarkarthMilk : Drink
     {
         /// <summary>
         /// Price in relation to size of the drink
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Calories in relation to size of the drink
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -66,7 +66,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Special instructions. 
         /// It adds "Add ice" when ice is needed, otherwise it shows empty list.
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {
@@ -80,10 +80,8 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
-        /// <summary>
-        /// Size, defaults to small
-        /// </summary>
-        public Size Size { get; set; } = Size.Small;
+
+
         /// <summary>
         /// Ice option, defaults to false.
         /// </summary>

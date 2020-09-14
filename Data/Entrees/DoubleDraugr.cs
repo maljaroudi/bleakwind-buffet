@@ -12,21 +12,21 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree
     {
         /// <summary>
         /// Price, set privately across all options
         /// </summary>
-        public double Price { get;  } = 7.32;
+        public override double Price { get;  } = 7.32;
         /// <summary>
         /// Initializes the calories across all options
         /// </summary>
-        public uint Calories { get;  } = 843;
+        public override uint Calories { get;  } = 843;
 
         /// <summary>
         /// Adds special instructions in case of removing Bun, Ketchup, Mustard, Pickles, Cheese, Tomato, Lettuce, Mayo. Otherwise, returns empty list.
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {

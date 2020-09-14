@@ -12,22 +12,22 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree
     {
         /// <summary>
         /// Price initalizer sets it across all options
         /// </summary>
-        public double Price { get;  } = 8.32;
+        public override double Price { get;  } = 8.32;
 
         /// <summary>
         /// Calories to show how many calories in the dish 
         /// </summary>
-        public uint Calories { get;  } = 943;
+        public override uint Calories { get;  } = 943;
 
         /// <summary>
         /// Adds special instructions whenever the costumer doesn't want an item. It adds "hold" and append it to the list.
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {
@@ -41,7 +41,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (Lettuce == false) SpecialInstructions.Add("Hold lettuce");
                 if (Mayo == false) SpecialInstructions.Add("Hold mayo");
                 if (Bacon == false) SpecialInstructions.Add("Hold bacon");
-                if (Egg == false) SpecialInstructions.Add("Hold eggs");
+                if (Egg == false) SpecialInstructions.Add("Hold egg");
                 return SpecialInstructions;
             }
 

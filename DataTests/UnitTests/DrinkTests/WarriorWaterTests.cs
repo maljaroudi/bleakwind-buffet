@@ -9,6 +9,8 @@ using System.Text;
 using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
+
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class WarriorWaterTests
@@ -80,6 +82,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             drink.Lemon = includeLemon;
             if(!includeIce) Assert.Contains("Hold ice", drink.SpecialInstructions);
             if(includeLemon) Assert.Contains("Add lemon", drink.SpecialInstructions);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToInterfaceClass()
+        {
+            WarriorWater drink = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(drink);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            WarriorWater drink = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(drink);
         }
     }
 }

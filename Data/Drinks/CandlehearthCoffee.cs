@@ -12,12 +12,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Provides the Candlehearth Coffee product detail
     /// </summary>
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : Drink
     {
         /// <summary>
         /// Sets price in relation to size of item
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -41,7 +41,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// sets calories in relation to size 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -65,7 +65,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// sets special instructions when the Ice, RoomForCream are checked.
         /// If ice is needed, it adds ice, if not, it holds it. If cream is ineeded, it add instructions, if not it adds hold.
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {
@@ -80,10 +80,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
-        /// <summary>
-        /// Size of drink, default to small
-        /// </summary>
-        public Size Size { get; set; } = Size.Small;
+
+
+
         /// <summary>
         /// Whether the costumer needs ice default to no.
         /// </summary>

@@ -13,12 +13,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Provides the Warrior Water product detail
     /// </summary>
-    public class WarriorWater
+    public class WarriorWater : Drink
     {
         /// <summary>
         /// Price, set to 0 accross all options.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get;
 
@@ -26,11 +26,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Calories, Set to 0 across all options
         /// </summary>
-        public uint Calories { get; } = 0;
+        public override uint Calories { get; } = 0;
         /// <summary>
         /// Water comes with ice, therefore this adds instruction for holding ice and adding lemon option when needed. 
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {
@@ -45,10 +45,8 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
-        /// <summary>
-        /// Size, defaults to small, can be changed to medium and large
-        /// </summary>
-        public Size Size { get; set; } = Size.Small;
+
+
         /// <summary>
         /// Ice, defaults to true
         /// </summary>

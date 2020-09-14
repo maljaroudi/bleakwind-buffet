@@ -15,12 +15,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Provides the Aretino Apple Juice product detail
     /// </summary>
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice : Drink
     {
         /// <summary>
         /// Sets price in relation to the Size of the item
         /// </summary>
-        public double Price
+        public override double Price
         { 
         get
             {
@@ -43,9 +43,9 @@ namespace BleakwindBuffet.Data.Drinks
          }
         
         /// <summary>
-        /// Sets calories in relation to the Size of the item
+        /// overrides calories in relation to the Size of the item
         /// </summary>
-        public uint Calories 
+        public override uint Calories 
         {
             get
             {
@@ -69,7 +69,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// List of special instructions
         /// Adds ice to the list when ice is checked
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {
@@ -85,13 +85,7 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
 
-        /// <summary>
-        /// size of the juice, default value is small
-        /// </summary>
-        public Size Size
-        {
-            get; set;
-        } = Size.Small;
+        
 
         /// <summary>
         /// Whether ice is needed, default is false

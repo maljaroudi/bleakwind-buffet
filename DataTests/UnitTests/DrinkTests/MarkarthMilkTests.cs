@@ -7,6 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -88,6 +89,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk milk = new MarkarthMilk();
             milk.Size = size;
             Assert.Equal($"{size} Markarth Milk", name);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToInterfaceClass()
+        {
+            MarkarthMilk milk = new MarkarthMilk();
+            Assert.IsAssignableFrom<IOrderItem>(milk);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            MarkarthMilk milk = new MarkarthMilk();
+            Assert.IsAssignableFrom<Drink>(milk);
         }
     }
 }

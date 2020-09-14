@@ -6,6 +6,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -204,7 +205,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             if (!includeTomato) Assert.Contains("Hold tomato", entree.SpecialInstructions);
             if (!includeMayo) Assert.Contains("Hold mayo", entree.SpecialInstructions);
             if (!includeBacon) Assert.Contains("Hold bacon", entree.SpecialInstructions);
-            if (!includeEgg) Assert.Contains("Hold eggs", entree.SpecialInstructions);
+            if (!includeEgg) Assert.Contains("Hold egg", entree.SpecialInstructions);
             else Assert.Empty(entree.SpecialInstructions);
         }
 
@@ -214,6 +215,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThalmorTriple entree = new ThalmorTriple();
 
             Assert.Equal("Thalmor Triple", entree.ToString());
+        }
+
+
+        [Fact]
+        public void ShouldBeAssignableToInterfaceClass()
+        {
+            ThalmorTriple entree = new ThalmorTriple();
+            Assert.IsAssignableFrom<IOrderItem>(entree);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            ThalmorTriple entree = new ThalmorTriple();
+            Assert.IsAssignableFrom<Entree>(entree);
         }
     }
 }

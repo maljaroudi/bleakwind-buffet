@@ -6,6 +6,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -91,6 +92,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher entree = new PhillyPoacher();
             Assert.Equal("Philly Poacher", entree.ToString());
 
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToInterfaceClass()
+        {
+            PhillyPoacher entree = new PhillyPoacher();
+            Assert.IsAssignableFrom<IOrderItem>(entree);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            PhillyPoacher entree = new PhillyPoacher();
+            Assert.IsAssignableFrom<Entree>(entree);
         }
     }
 }

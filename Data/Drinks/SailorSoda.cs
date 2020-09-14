@@ -16,12 +16,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Provides the Sailor Soda product detail
     /// </summary>
-    public class SailorSoda
+    public class SailorSoda : Drink
     {
         /// <summary>
         /// Price in relation to size.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -45,7 +45,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Calories in relation to Size
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -68,7 +68,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Special Instructions, Adds "Hold Ice" when ice isn't needed.
         /// </summary>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {
@@ -83,10 +83,8 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
-        /// <summary>
-        /// Size, defaults to small
-        /// </summary>
-        public Size Size { get; set; } = Size.Small;
+
+
         /// <summary>
         /// Ice, defaults to true
         /// </summary>
