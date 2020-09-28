@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="PointOfSale.DrinkOptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" >Options</TextBlock>
+
+        <CheckBox Name="ice" Content="Add Ice"  IsEnabled="True" Grid.Column="1" Grid.Row="1" FontSize="10">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="blackberry" Content="Blackberry"  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="9.5" Checked="CheckboxChecker">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="cherry" Content="Cherry      "  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="10" HorizontalAlignment="Right" Checked="CheckboxChecker">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="lemon" Content="Lemon"  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CheckboxChecker"> 
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="peach" Content="Peach       "  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Center" Checked="CheckboxChecker">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="watermelon" Content="Watermelon"  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Checked="CheckboxChecker">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="grapefruit" Content="Grapefruit"  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Checked="CheckboxChecker">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="cream"  Content="Add Cream"  IsEnabled="False" Grid.Column="1" Grid.Row="2" FontSize="10">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="decaf" Content="Decaf"  IsEnabled="False" Grid.Column="1" Grid.Row="2" FontSize="10" VerticalAlignment="Center">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Button Content="Order" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="OrderTheItem" VerticalAlignment="Top"></Button>
+        <Button Content="Back" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="BackToDrinks" VerticalAlignment="Bottom"></Button>
+        <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="2">Size</TextBlock>
+        <Slider Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"   Grid.Row="2" Orientation="Horizontal"
+    Minimum="0"
+    Maximum="10"
+    Value="0"
+    IsSnapToTickEnabled="True"
+    ValueChanged="Slider_ValueChanged"         
+    TickFrequency="5" Width="152"/>
+        <TextBlock Name="sizer" FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="2">Small</TextBlock>
+
+
+
+
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+    </Grid>
+</UserControl>

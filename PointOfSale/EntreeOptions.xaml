@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="PointOfSale.EntreeOptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" >Options</TextBlock>
+
+        <CheckBox Name="bun"  Content="Hold Bun"  IsEnabled="False" Grid.Column="1" Grid.Row="1" FontSize="10">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="ketchup"  Content="Hold Ketchup"  IsEnabled="False" Grid.Column="1" Grid.Row="1" FontSize="10" VerticalAlignment="Center">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="mustard"  Content="Hold Mustard"  IsEnabled="False" Grid.Column="1" Grid.Row="1" FontSize="10" VerticalAlignment="Bottom">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="pickle"  Content="Hold Pickle"  IsEnabled="False" Grid.Column="1" Grid.Row="2" FontSize="10" VerticalAlignment="Top">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="cheese"  Content="Hold Cheese"  IsEnabled="False" Grid.Column="1" Grid.Row="2" FontSize="10" VerticalAlignment="Center">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="tomato"  Content="Hold Tomato"  IsEnabled="False" Grid.Column="1" Grid.Row="2" FontSize="10" VerticalAlignment="Bottom">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        
+        
+        <CheckBox Name="lettuce"  Content="Hold Lettuce"  IsEnabled="False" Grid.Column="2" Grid.Row="1" FontSize="10" VerticalAlignment="Top">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="mayo"  Content="Hold Mayo"  IsEnabled="False" Grid.Column="2" Grid.Row="1" FontSize="10" VerticalAlignment="Center">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        
+        <CheckBox Name="broccoli"  Content="Hold Broccoli"  IsEnabled="False" Grid.Column="2" Grid.Row="1" FontSize="10" VerticalAlignment="Bottom">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="mushroom"  Content="Hold Mushroom"  IsEnabled="False" Grid.Column="2" Grid.Row="2" FontSize="10" VerticalAlignment="Top">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="cheddar"  Content="Hold Cheddar"  IsEnabled="False" Grid.Column="2" Grid.Row="2" FontSize="10" VerticalAlignment="Center">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="sirloin"  Content="Hold Sirloin"  IsEnabled="False" Grid.Column="2" Grid.Row="2" FontSize="10" VerticalAlignment="Bottom">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="onion"  Content="Hold Onion"  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="10" VerticalAlignment="Top">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="roll"  Content="Hold Roll"  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="10" VerticalAlignment="Center">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="sausage"  Content="Hold Sausage"  IsEnabled="False" Grid.Column="3" Grid.Row="1" FontSize="10" VerticalAlignment="Bottom">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="hashBrowns"  Content="Hold Hash Browns"  IsEnabled="False" Grid.Column="3" Grid.Row="2" FontSize="10" VerticalAlignment="Top">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+
+        <CheckBox Name="pancakes"  Content="Hold Pancakes"  IsEnabled="False" Grid.Column="3" Grid.Row="2" FontSize="10" VerticalAlignment="Center">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+
+        <CheckBox Name="eggs"  Content="Hold Eggs"  IsEnabled="False" Grid.Column="3" Grid.Row="2" FontSize="10" VerticalAlignment="Bottom">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox Name="bacon"  Content="Hold Bacon   "  IsEnabled="False" Grid.Column="3" Grid.Row="2" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        
+        
+        
+        <Button Content="Back" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="4" Grid.Column ="2"  Width="120" Height="40" Click="BackToEntrees" VerticalAlignment="Bottom"></Button>
+        <Button Content="Order" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="4" Grid.Column ="2"  Width="120" Height="40" Click="OrderItem" VerticalAlignment="Top"></Button>
+
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+    </Grid>
+</UserControl>
