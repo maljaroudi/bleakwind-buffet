@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data;
+﻿/*
+ * Author: Moheeb Aljaroudi
+ * Class name: DrinkOptions.cs
+ * Purpose: Show all drink options
+ */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
@@ -18,17 +23,34 @@ namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for DrinkOptions.xaml
+    /// Checks the boxes that are necessary
+    /// Add all options from the drink that it corrsponds to
     /// </summary>
     public partial class DrinkOptions : UserControl
     {
+        /// <summary>
+        /// Gets the string from the previous user control and reserve it to identify the product
+        /// </summary>
         public string StringGetter { get; set; } 
+        /// <summary>
+        /// unncessary value for drink type
+        /// </summary>
         public Drink DrinkType { get; set; }
+        /// <summary>
+        /// Initializer
+        /// </summary>
         public DrinkOptions() 
         {
             InitializeComponent();
             
 
         }
+
+        /// <summary>
+        /// Slider method to change value for side in increment of 5
+        /// </summary>
+        /// <param name="sender"> slider ticks</param>
+        /// <param name="e">tick value</param>
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             switch (e.NewValue)
@@ -44,6 +66,12 @@ namespace PointOfSale
                     return;
             }
         }
+
+        /// <summary>
+        /// Order item method to add to the list and change price
+        /// </summary>
+        /// <param name="sender">order button</param>
+        /// <param name="e">event handler when button pressed</param>
         void OrderTheItem(object sender, RoutedEventArgs e)
         {
             switch (StringGetter)
@@ -118,7 +146,11 @@ namespace PointOfSale
 
 
         }
-
+        /// <summary>
+        /// Function to allow only 1 value from all options for sailor soda
+        /// </summary>
+        /// <param name="sender">any checkbox</param>
+        /// <param name="e">whether it's checked</param>
         private void CheckboxChecker(object sender, RoutedEventArgs e)
         {
             CheckBox checker = (CheckBox)sender;
@@ -130,7 +162,11 @@ namespace PointOfSale
             
             
         }
-
+        /// <summary>
+        /// Backs  the user to previous screen
+        /// </summary>
+        /// <param name="sender">back button</param>
+        /// <param name="e">Press Event</param>
         private void BackToDrinks(object sender, RoutedEventArgs e)
         {
             (this.Parent as Border).Child = new DrinksWindow();

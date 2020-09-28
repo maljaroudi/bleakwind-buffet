@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Moheeb Aljaroudi
+ * Class name: MainMenu.cs
+ * Purpose: Main menu skeleton
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +22,21 @@ namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// Main Menu, It's only a skeleton 
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Border MainBorder { get { return mainBorder; } }
+        /// <summary>
+        /// Unnecessary list for orders, not used
+        /// </summary>
         public List<string> OrderList { get; set; } = new List<string>();
+        /// <summary>
+        /// Initializer, it also sets the border to the order menu
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            MainBorder.Child = new OrderWindow();
+            mainBorder.Child = new OrderWindow();
             
 
         }

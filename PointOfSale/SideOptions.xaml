@@ -18,7 +18,7 @@
         <TextBlock Name="sizer" FontSize="30"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1">Small</TextBlock>
 
         <Button Content="Order" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="OrderTheItem" VerticalAlignment="Top"></Button>
-        <Button Content="Back" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="BackToDrinks" VerticalAlignment="Bottom"></Button>
+        <Button Content="Back" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="BackToSides" VerticalAlignment="Bottom"></Button>
 
 
 

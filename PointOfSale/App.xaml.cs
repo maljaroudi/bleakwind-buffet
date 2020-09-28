@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Moheeb Aljaroudi
+ * Class name: App.cs
+ * Purpose: Initializer
+ */
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

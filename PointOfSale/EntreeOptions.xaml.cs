@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Entrees;
+﻿/*
+ * Author: Moheeb Aljaroudi
+ * Class name: EntreeOptions.cs
+ * Purpose: Show all Entree Options
+ */
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,17 +24,31 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeOptions : UserControl
     {
+        /// <summary>
+        /// String to capture what item chosen
+        /// </summary>
         public string StringGetter { get; set; }
+        /// <summary>
+        /// Initializer
+        /// </summary>
         public EntreeOptions()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Back button to back to all entrees
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">press</param>
         private void BackToEntrees(object sender, RoutedEventArgs e)
         {
             (this.Parent as Border).Child = new EntreeWindow();
         }
-
+        /// <summary>
+        /// Add item to order list
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">press</param>
         private void OrderItem(object sender, RoutedEventArgs e)
         {
             switch (StringGetter)

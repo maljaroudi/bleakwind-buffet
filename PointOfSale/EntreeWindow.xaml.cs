@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Moheeb Aljaroudi
+ * Class name: EntreeWindow.cs
+ * Purpose: Show all entrees
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -15,14 +20,23 @@ namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for EntreeWindow.xaml
+    /// Shows all entrees
     /// </summary>
     public partial class EntreeWindow : UserControl
     {
+        /// <summary>
+        /// Initializer
+        /// </summary>
         public EntreeWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// All buttons go to this event handler, it takes the button name and choose respective entree option window
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">press</param>
         private void ShowEntreeOptions(object sender, RoutedEventArgs e)
         {
             EntreeOptions entreeOption = new EntreeOptions();
@@ -83,7 +97,11 @@ namespace PointOfSale
             }
             (this.Parent as Border).Child = entreeOption;
         }
-
+        /// <summary>
+        /// Back button to the menu items
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">press</param>
         private void BackButton(object sender, RoutedEventArgs e)
         {
             (this.Parent as Border).Child = new OrderWindow();

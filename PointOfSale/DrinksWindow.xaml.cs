@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+ * Author: Moheeb Aljaroudi
+ * Class name: DrinkWindow.cs
+ * Purpose: Show all drinks available
+ */
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,25 +21,36 @@ namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for DrinksWindow.xaml
+    /// window/tab for showing drinks 
     /// </summary>
     public partial class DrinksWindow : UserControl
     {
 
 
-
+        /// <summary>
+        /// initializer
+        /// </summary>
         public DrinksWindow()
         {
             InitializeComponent();
           
 
         }
-
+        /// <summary>
+        /// Back button to back to menu items
+        /// </summary>
+        /// <param name="sender">back button</param>
+        /// <param name="e">press</param>
         void BackButtonClick (object sender, RoutedEventArgs e)
         {
             (this.Parent as Border).Child = new OrderWindow();
         }
 
-
+        /// <summary>
+        /// Shows chosen drink user control
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">press</param>
         void ShowDrinkOptions(object sender, RoutedEventArgs e)
         {
             

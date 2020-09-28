@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Sides;
+﻿/*
+ * Author: Moheeb Aljaroudi
+ * Class name: SideOptions.cs
+ * Purpose: Show all side options
+ */
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,16 +20,26 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for SideOptions.xaml
+    /// Interaction logic for SideOptions.xaml shows options for respective side
     /// </summary>
     public partial class SideOptions : UserControl
     {
+        /// <summary>
+        /// Takes the chosen menu item from button name
+        /// </summary>
         public string StringGetter { get; set; }
+        /// <summary>
+        /// Initializer
+        /// </summary>
         public SideOptions()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Orders the item to the list
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">press</param>
         private void OrderTheItem(object sender, RoutedEventArgs e)
         {
             switch (StringGetter)
@@ -71,7 +86,11 @@ namespace PointOfSale
                     return;
             }
         }
-
+        /// <summary>
+        /// Slider modifier to change the size
+        /// </summary>
+        /// <param name="sender">slider</param>
+        /// <param name="e">tick and drag</param>
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             switch (e.NewValue)
@@ -87,8 +106,12 @@ namespace PointOfSale
                     return;
             }
         }
-
-        private void BackToDrinks(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// back button to back to sides menu
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">press</param>
+        private void BackToSides(object sender, RoutedEventArgs e)
         {
             (this.Parent as Border).Child = new SidesWindow();
         }
