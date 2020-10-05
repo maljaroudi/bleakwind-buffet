@@ -7,6 +7,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -28,5 +30,21 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// Event Handler for INotifyPropertyChanged interface
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+
+
+        /// <summary>
+        /// Property Change event caller for INotifyPropertyChanged interface .
+        /// </summary>
+        /// <param name="name">Name of the changing property.</param>
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }

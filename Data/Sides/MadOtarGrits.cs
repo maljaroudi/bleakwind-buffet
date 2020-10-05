@@ -8,12 +8,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class MadOtarGrits : Side
+    public class MadOtarGrits : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// Price in relation to the size.
@@ -24,16 +25,19 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small)
                 {
+                    OnPropertyChanged();
                     return 1.22;
 
                 }
 
                 else if (Size == Size.Medium)
                 {
+                    OnPropertyChanged();
                     return 1.58;
                 }
                 else
                 {
+                    OnPropertyChanged();
                     return 1.93;
                 }
             }
@@ -48,16 +52,19 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small)
                 {
+                    OnPropertyChanged();
                     return 105;
 
                 }
 
                 else if (Size == Size.Medium)
                 {
+                    OnPropertyChanged();
                     return 142;
                 }
                 else
                 {
+                    OnPropertyChanged();
                     return 179;
                 }
             }

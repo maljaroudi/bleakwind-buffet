@@ -5,6 +5,8 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -12,7 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the Philly Poacher details
     /// </summary>
-    public class PhillyPoacher : Entree
+    public class PhillyPoacher : Entree, INotifyPropertyChanged
     {
         /// <summary>
         /// Price initalizer for price set across all options
@@ -35,6 +37,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (Sirloin == false) SpecialInstructions.Add("Hold sirloin");
                 if (Onion == false) SpecialInstructions.Add("Hold onions");
                 if (Roll == false) SpecialInstructions.Add("Hold roll");
+                OnPropertyChanged();
                 return SpecialInstructions;
             }
 
@@ -48,18 +51,54 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Philly Poacher";
         }
+
+
+        private bool _sirloin = true;
+
         /// <summary>
         /// Sirloin option, default to true
         /// </summary>
-        public bool Sirloin { get; set; } = true;
+        public bool Sirloin
+        {
+            get { return _sirloin; }
+            set
+            {
+                _sirloin = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _onion = true;
         /// <summary>
         /// Onion option, defaults to true
         /// </summary>
-        public bool Onion { get; set; } = true;
+        public bool Onion
+        {
+            get { return _onion; }
+            set
+            {
+                _onion = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _roll = true;
         /// <summary>
         /// Roll option, defaults to true
         /// </summary>
-        public bool Roll { get; set; } = true;
+        public bool Roll
+        {
+            get { return _roll; }
+            set
+            {
+                _roll = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
 
 

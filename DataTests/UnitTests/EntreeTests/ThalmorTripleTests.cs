@@ -231,5 +231,40 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThalmorTriple entree = new ThalmorTriple();
             Assert.IsAssignableFrom<Entree>(entree);
         }
+
+
+        [Theory]
+        [InlineData("Bun")]
+        [InlineData("Ketchup")]
+        [InlineData("Pickle")]
+        [InlineData("Mustard")]
+        [InlineData("Cheese")]
+        [InlineData("Tomato")]
+        [InlineData("Lettuce")]
+        [InlineData("Mayo")]
+        [InlineData("Bacon")]
+        [InlineData("Egg")]
+        public void HoldingShouldNotifyPropertiesChange(string s)
+        {
+            ThalmorTriple entree = new ThalmorTriple();
+            System.Action p = () =>
+            {
+                entree.Bun = false;
+                entree.Ketchup = false;
+                entree.Pickle = false;
+                entree.Mustard = false;
+                entree.Cheese = false;
+                entree.Tomato = false;
+                entree.Lettuce = false;
+                entree.Mayo = false;
+                entree.Bacon = false;
+                entree.Egg = false;
+            };
+            Assert.PropertyChanged(entree, "SpecialInstructions", p);
+            Assert.PropertyChanged(entree, s, p);
+
+
+
+        }
     }
 }

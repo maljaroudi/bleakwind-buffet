@@ -75,6 +75,7 @@ namespace BleakwindBuffet.Data.Drinks
                 else
                 {
                     SpecialInstructions.Add("Add ice");
+                    OnPropertyChanged();
                 }
                 return SpecialInstructions;
             }
@@ -82,10 +83,21 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
 
+        private bool _ice = false;
         /// <summary>
-        /// Ice option, defaults to false.
+        /// Whether the costumer needs ice default to no.
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
         /// <summary>
         /// Overrisde ToString() to show the product name
         /// </summary>

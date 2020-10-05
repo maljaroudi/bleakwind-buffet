@@ -112,7 +112,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.IsAssignableFrom<Drink>(juice);
         }
 
-        
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void HoldingShouldNotifyPropertiesChange(Size s)
+        {
+            AretinoAppleJuice juice = new AretinoAppleJuice();
+            System.Action p = () =>
+            {
+                juice.Ice = false;
+                juice.Size = s;
+                
+            };
+            Assert.PropertyChanged(juice, "SpecialInstructions", p);
+            Assert.PropertyChanged(juice, "Size", p);
+            Assert.PropertyChanged(juice, "Ice", p);
+            Assert.PropertyChanged(juice, "Price", p);
+            Assert.PropertyChanged(juice, "Calories", p);
+
+
+        }
 
 
     }

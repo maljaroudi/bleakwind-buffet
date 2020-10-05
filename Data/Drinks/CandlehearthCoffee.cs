@@ -75,27 +75,59 @@ namespace BleakwindBuffet.Data.Drinks
 
                 if (RoomForCream) SpecialInstructions.Add("Add cream");
                 if (!RoomForCream) SpecialInstructions.Add("Hold cream");
-
+                OnPropertyChanged();
                 return SpecialInstructions;
             }
 
         }
 
 
-
+        private bool _ice = false;
         /// <summary>
         /// Whether the costumer needs ice default to no.
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _cream = false;
+
         /// <summary>
         /// Whether Cream is wanted, default is false.
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get { return _cream; }
+            set
+            {
+                _cream = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
+        private bool _decaf = false;
         /// <summary>
         /// Whether the coffee is decaf, default to false.
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get { return _decaf; }
+            set
+            {
+                _decaf = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
         /// <summary>
         /// overrised the ToString method

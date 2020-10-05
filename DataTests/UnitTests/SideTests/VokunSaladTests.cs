@@ -84,5 +84,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             VokunSalad side = new VokunSalad();
             Assert.IsAssignableFrom<Side>(side);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void HoldingShouldNotifyPropertiesChange(Size s)
+        {
+            VokunSalad side = new VokunSalad();
+            System.Action p = () =>
+            {
+                side.Size = s;
+
+            };
+            Assert.PropertyChanged(side, "Size", p);
+            Assert.PropertyChanged(side, "Price", p);
+            Assert.PropertyChanged(side, "Calories", p);
+
+
+        }
     }
 }

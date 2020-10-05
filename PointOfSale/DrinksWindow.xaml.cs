@@ -71,8 +71,14 @@ namespace PointOfSale
                 drinkOption.watermelon.IsEnabled = true;
                 drinkOption.peach.IsEnabled = true;
                 drinkOption.grapefruit.IsEnabled = true;
+                drinkOption.ice.IsChecked = true;
             }
-            (this.Parent as Border).Child = drinkOption;
+            else if (drinkOption.StringGetter == "warriorWater")
+            {
+                drinkOption.ice.IsChecked = true;
+
+            }
+                (this.Parent as Border).Child = drinkOption;
 
 
 

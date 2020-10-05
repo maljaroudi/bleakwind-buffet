@@ -5,6 +5,8 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -12,7 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class DoubleDraugr : Entree
+    public class DoubleDraugr : Entree, INotifyPropertyChanged
     {
         /// <summary>
         /// Price, set privately across all options
@@ -39,6 +41,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (Tomato == false) SpecialInstructions.Add("Hold tomato");
                 if (Lettuce == false) SpecialInstructions.Add("Hold lettuce");
                 if (Mayo == false) SpecialInstructions.Add("Hold mayo");
+                OnPropertyChanged();
                 return SpecialInstructions;
             }
 
@@ -55,35 +58,134 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Bun option, defaults to true
         /// </summary>
-        public bool Bun { get; set; } = true;
+
+        private bool _bun = true;
+
         /// <summary>
-        /// Ketchup Option, defaults to true
+        /// Bun option, default to true
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Bun
+        {
+            get { return _bun; }
+            set
+            {
+                _bun = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _ketchup = true;
+
         /// <summary>
-        /// Mustard option, defaults to true
+        /// Ketchup option, defaults to true
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Ketchup
+        {
+            get { return _ketchup; }
+            set
+            {
+                _ketchup = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _mustard = true;
         /// <summary>
-        /// Pickle option, defaults to true
+        /// Mustard option, defaults to true    
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Mustard
+        {
+            get { return _mustard; }
+            set
+            {
+                _mustard = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _pickle = true;
+
+
+        /// <summary>
+        /// Pickle Option, defaults to true
+        /// </summary>
+        public bool Pickle
+        {
+            get { return _pickle; }
+            set
+            {
+                _pickle = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _cheese = true;
+
         /// <summary>
         /// Cheese option, defaults to true
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese
+        {
+            get { return _cheese; }
+            set
+            {
+                _cheese = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _tomato = true;
         /// <summary>
         /// Tomato option, defaults to true
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato
+        {
+            get { return _tomato; }
+            set
+            {
+                _tomato = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _lettuce = true;
         /// <summary>
         /// Lettuce option, defaults to true
         /// </summary>
-        public bool Lettuce { get; set; } = true;
+        public bool Lettuce
+        {
+            get { return _lettuce; }
+            set
+            {
+                _lettuce = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _mayo = true;
+
         /// <summary>
         /// Mayo option, defaults to true
         /// </summary>
-        public bool Mayo { get; set; } = true;
+        public bool Mayo
+        {
+            get { return _mayo; }
+            set
+            {
+                _mayo = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
 
 

@@ -107,5 +107,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher entree = new PhillyPoacher();
             Assert.IsAssignableFrom<Entree>(entree);
         }
+
+
+
+        [Theory]
+        [InlineData("Sirloin")]
+        [InlineData("Onion")]
+        [InlineData("Roll")]
+        public void HoldingShouldNotifyPropertiesChange(string s)
+        {
+            PhillyPoacher entree = new PhillyPoacher();
+            System.Action p = () =>
+            {
+                entree.Sirloin = false;
+                entree.Onion = false;
+                entree.Roll = false;
+            };
+            Assert.PropertyChanged(entree, "SpecialInstructions", p);
+            Assert.PropertyChanged(entree, s, p);
+
+
+
+        }
     }
 }

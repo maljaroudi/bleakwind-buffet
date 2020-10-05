@@ -17,6 +17,10 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class AretinoAppleJuice : Drink
     {
+
+
+
+
         /// <summary>
         /// Sets price in relation to the Size of the item
         /// </summary>
@@ -78,6 +82,7 @@ namespace BleakwindBuffet.Data.Drinks
                 else
                 {
                     SpecialInstructions.Add("Add ice");
+                    OnPropertyChanged();
                     return SpecialInstructions;
                 }
             }
@@ -85,12 +90,21 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
 
-        
 
+        private bool _ice = false;
         /// <summary>
         /// Whether ice is needed, default is false
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
         /// <summary>
         /// overrised the ToString method

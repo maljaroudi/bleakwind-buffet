@@ -5,6 +5,8 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -12,7 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class GardenOrcOmelette : Entree
+    public class GardenOrcOmelette : Entree , INotifyPropertyChanged
     {
         /// <summary>
         /// Price initializer and property, set to the price for all options
@@ -35,6 +37,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (Mushrooms == false) SpecialInstructions.Add("Hold mushrooms");
                 if (Tomato == false) SpecialInstructions.Add("Hold tomato");
                 if (Cheddar == false) SpecialInstructions.Add("Hold cheddar");
+                OnPropertyChanged();
                 return SpecialInstructions;
             }
 
@@ -48,22 +51,69 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Garden Orc Omelette";
         }
+
+
+        private bool _broccoli = true;
+
         /// <summary>
         /// Broccoli Option, defaults to true
         /// </summary>
-        public bool Broccoli { get; set; } = true;
+        public bool Broccoli
+        {
+            get { return _broccoli; }
+            set
+            {
+                _broccoli = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _mushrooms = true;
         /// <summary>
         /// Mushroom option, defaults to true
         /// </summary>
-        public bool Mushrooms { get; set; } = true;
+        public bool Mushrooms
+        {
+            get { return _mushrooms; }
+            set
+            {
+                _mushrooms = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _tomato = true;
         /// <summary>
         /// Tomato option, defaults to true
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato
+        {
+            get { return _tomato; }
+            set
+            {
+                _tomato = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _cheddar = true;
         /// <summary>
         /// Cheddar option, defaults to true
         /// </summary>
-        public bool Cheddar { get; set; } = true;
+        public bool Cheddar
+        {
+            get { return _cheddar; }
+            set
+            {
+                _cheddar = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
 
     }

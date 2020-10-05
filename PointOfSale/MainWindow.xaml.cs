@@ -26,6 +26,8 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public List<IOrderItem> Items { get; set; } = new List<IOrderItem>();
         /// <summary>
         /// Unnecessary list for orders, not used
         /// </summary>
@@ -40,6 +42,14 @@ namespace PointOfSale
             
 
         }
-        
+
+        private void ListerSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int indexGetter = ((ListBox)sender).SelectedIndex;
+            if (((ListBox)sender).SelectedItem != null)
+            {
+                specialInstruct.Text = string.Join(",", Items[indexGetter].SpecialInstructions);
+            }
+        }
     }
 }

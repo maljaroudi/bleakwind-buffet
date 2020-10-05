@@ -129,5 +129,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             SmokehouseSkeleton entree = new SmokehouseSkeleton();
             Assert.IsAssignableFrom<Entree>(entree);
         }
+
+
+
+
+        [Theory]
+        [InlineData("SausageLink")]
+        [InlineData("HashBrowns")]
+        [InlineData("Pancake")]
+        [InlineData("Egg")]
+        public void HoldingShouldNotifyPropertiesChange(string s)
+        {
+            SmokehouseSkeleton entree = new SmokehouseSkeleton();
+            System.Action p = () =>
+            {
+                entree.SausageLink = false;
+                entree.HashBrowns = false;
+                entree.Pancake = false;
+                entree.Egg = false;
+            };
+            Assert.PropertyChanged(entree, "SpecialInstructions", p);
+            Assert.PropertyChanged(entree, s, p);
+
+
+
+        }
     }
 }

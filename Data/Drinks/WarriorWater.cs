@@ -41,20 +41,42 @@ namespace BleakwindBuffet.Data.Drinks
                     SpecialInstructions.Add("Hold ice");
                     if (Lemon) SpecialInstructions.Add("Add lemon");
                 }
+                OnPropertyChanged();
                 return SpecialInstructions;
             }
 
         }
 
 
+        private bool _ice = true;
         /// <summary>
-        /// Ice, defaults to true
+        /// Whether the costumer needs ice default to no.
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _lemon = false;
         /// <summary>
         /// Lemon, Defaults to false.
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return _lemon; }
+            set
+            {
+                _lemon = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
         /// <summary>
         /// Overrisde ToString() to show the product name

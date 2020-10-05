@@ -55,5 +55,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThugsTBone entree = new ThugsTBone();
             Assert.IsAssignableFrom<Entree>(entree);
         }
+
+        //No Property Change test since there is no one to begin with.
     }
 }

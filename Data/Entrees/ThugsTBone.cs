@@ -7,13 +7,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
-namespace BleakwindBuffet.Data.Entrees
+
+namespace BleakwindBuffet.Data.Entrees 
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class ThugsTBone : Entree
+    public class ThugsTBone : Entree, INotifyPropertyChanged
     {
         /// <summary>
         /// Price initalizer, sets the price for the entree

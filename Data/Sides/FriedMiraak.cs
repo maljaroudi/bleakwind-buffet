@@ -7,12 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class FriedMiraak : Side
+    public class FriedMiraak : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// Price in relation to the size
@@ -23,16 +24,19 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small)
                 {
+                    OnPropertyChanged();
                     return 1.78;
 
                 }
 
                 else if (Size == Size.Medium)
                 {
+                    OnPropertyChanged();
                     return 2.01;
                 }
                 else
                 {
+                    OnPropertyChanged();
                     return 2.88;
                 }
             }
@@ -47,16 +51,19 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small)
                 {
+                    OnPropertyChanged();
                     return 151;
 
                 }
 
                 else if (Size == Size.Medium)
                 {
+                    OnPropertyChanged();
                     return 236;
                 }
                 else
                 {
+                    OnPropertyChanged();
                     return 306;
                 }
             }

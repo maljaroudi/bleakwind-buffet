@@ -7,12 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class VokunSalad : Side
+    public class VokunSalad : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// Price in relation to the size
@@ -65,10 +66,15 @@ namespace BleakwindBuffet.Data.Sides
         /// Special instruction, there is non, so it's empty.
         /// </summary>
         public override List<String> SpecialInstructions { get; } = new List<string>();
+        
         /// <summary>
         /// Size as Enum Size. defaults to small
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        ///public Size Size 
+        ///{
+          ///  get => Size.Small;
+         ///   set => OnPropertyChanged();
+       /// } 
 
         /// <summary>
         /// overrised the ToString method

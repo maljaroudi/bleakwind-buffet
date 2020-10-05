@@ -197,5 +197,38 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             DoubleDraugr entree = new DoubleDraugr();
             Assert.IsAssignableFrom<Entree>(entree);
         }
+
+        [Theory]
+        [InlineData("Bun")]
+        [InlineData("Ketchup")]
+        [InlineData("Pickle")]
+        [InlineData("Mustard")]
+        [InlineData("Cheese")]
+        [InlineData("Tomato")]
+        [InlineData("Lettuce")]
+        [InlineData("Mayo")]
+        public void HoldingShouldNotifyPropertiesChange(string s)
+        {
+            DoubleDraugr entree = new DoubleDraugr();
+            System.Action p = () =>
+            {
+                entree.Bun = false;
+                entree.Ketchup = false;
+                entree.Pickle = false;
+                entree.Mustard = false;
+                entree.Cheese = false;
+                entree.Tomato = false;
+                entree.Lettuce = false;
+                entree.Mayo = false;
+            };
+            Assert.PropertyChanged(entree, "SpecialInstructions", p);
+            Assert.PropertyChanged(entree, s, p);
+
+
+
+        }
+
+
+
     }
 }

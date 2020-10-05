@@ -8,13 +8,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class DragonbornWaffleFries : Side
+    public class DragonbornWaffleFries : Side, INotifyPropertyChanged
     {
+
+
+
+
+
+
+
+
         /// <summary>
         /// Sets the price in relation to the size of the side. 
         /// </summary>
@@ -24,16 +33,19 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small)
                 {
+                    OnPropertyChanged();
                     return 0.42;
 
                 }
 
                 else if (Size == Size.Medium)
                 {
+                    OnPropertyChanged();
                     return 0.76;
                 }
                 else
                 {
+                    OnPropertyChanged();
                     return 0.96;
                 }
             }
@@ -48,16 +60,19 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small)
                 {
+                    OnPropertyChanged();
                     return 77;
 
                 }
 
                 else if (Size == Size.Medium)
                 {
+                    OnPropertyChanged();
                     return 89;
                 }
                 else
                 {
+                    OnPropertyChanged();
                     return 100;
                 }
             }

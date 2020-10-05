@@ -143,5 +143,34 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.IsAssignableFrom<Drink>(coffee);
         }
+
+
+
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void HoldingShouldNotifyPropertiesChange(Size s)
+        {
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            System.Action p = () =>
+            {
+                coffee.Ice = true;
+                coffee.Decaf = true;
+                coffee.RoomForCream = true;
+                coffee.Size = s;
+
+            };
+            Assert.PropertyChanged(coffee, "SpecialInstructions", p);
+            Assert.PropertyChanged(coffee, "Size", p);
+            Assert.PropertyChanged(coffee, "Ice", p);
+            Assert.PropertyChanged(coffee, "Price", p);
+            Assert.PropertyChanged(coffee, "Calories", p);
+            Assert.PropertyChanged(coffee, "RoomForCream", p);
+            Assert.PropertyChanged(coffee, "Decaf", p);
+
+        }
+
     }
 }

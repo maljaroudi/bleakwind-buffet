@@ -97,5 +97,28 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater drink = new WarriorWater();
             Assert.IsAssignableFrom<Drink>(drink);
         }
+
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void HoldingShouldNotifyPropertiesChange(Size s)
+        {
+            WarriorWater drink = new WarriorWater();
+            System.Action p = () =>
+            {
+                drink.Ice = false;
+                drink.Size = s;
+
+            };
+            Assert.PropertyChanged(drink, "SpecialInstructions", p);
+            Assert.PropertyChanged(drink, "Size", p);
+            Assert.PropertyChanged(drink, "Ice", p);
+            Assert.PropertyChanged(drink, "Price", p);
+
+
+        }
+
     }
 }

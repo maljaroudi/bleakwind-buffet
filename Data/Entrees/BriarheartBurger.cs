@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -12,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class BriarheartBurger : Entree 
+    public class BriarheartBurger : Entree , INotifyPropertyChanged
     {
         /// <summary>
         /// Price same across all options
@@ -36,8 +37,10 @@ namespace BleakwindBuffet.Data.Entrees
                 if (Mustard == false) SpecialInstructions.Add("Hold mustard");
                 if (Pickle == false) SpecialInstructions.Add("Hold pickle");
                 if (Cheese == false) SpecialInstructions.Add("Hold cheese");
+                OnPropertyChanged();
                 return SpecialInstructions;
             }
+
 
         }
 
@@ -49,26 +52,90 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Briarheart Burger";
         }
+
+
+
+        private bool _bun = true;
+        
         /// <summary>
         /// Bun option, default to true
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun
+        {
+            get { return _bun; }
+            set
+            {
+                _bun = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _ketchup = true;
+
         /// <summary>
         /// Ketchup option, defaults to true
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup
+        {
+            get { return _ketchup; }
+            set
+            {
+                _ketchup = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _mustard = true;
         /// <summary>
         /// Mustard option, defaults to true    
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard
+        {
+            get { return _mustard; }
+            set
+            {
+                _mustard = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _pickle = true;
+
+
         /// <summary>
         /// Pickle Option, defaults to true
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle
+        {
+            get { return _pickle; }
+            set
+            {
+                _pickle = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _cheese = true;
+
         /// <summary>
         /// Cheese option, defaults to true
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese
+        {
+            get { return _cheese; }
+            set
+            {
+                _cheese = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
 
 

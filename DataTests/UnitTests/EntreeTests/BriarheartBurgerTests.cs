@@ -145,5 +145,32 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             BriarheartBurger entree = new BriarheartBurger();
             Assert.IsAssignableFrom<Entree>(entree);
         }
+
+
+        [Theory]
+        [InlineData("Bun")]
+        [InlineData("Ketchup")]
+        [InlineData("Pickle")]
+        [InlineData("Mustard")]
+        [InlineData("Cheese")]
+        public void HoldingShouldNotifyPropertiesChange(string s)
+        {
+            BriarheartBurger entree = new BriarheartBurger();
+            System.Action p = () =>
+                           {
+                               entree.Bun = false;
+                               entree.Ketchup = false;
+                               entree.Pickle = false;
+                               entree.Mustard = false;
+                               entree.Cheese = false;
+                           };
+            Assert.PropertyChanged(entree, "SpecialInstructions", p);
+            Assert.PropertyChanged(entree, s, p);
+
+
+
+        }
+
+
     }
 }

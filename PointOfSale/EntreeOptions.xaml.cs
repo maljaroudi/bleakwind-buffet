@@ -55,44 +55,49 @@ namespace PointOfSale
             {
                 case "briarheartBurger":
                     BriarheartBurger entree = new BriarheartBurger();
-                    if(bun.IsChecked== true) entree.Bun = true;
-                    if (ketchup.IsChecked == true) entree.Ketchup = true;
-                    if (mustard.IsChecked == true) entree.Mustard = true;
-                    if (pickle.IsChecked == true) entree.Pickle = true;
-                    if (cheese.IsChecked == true) entree.Cheese = true;
+                    if(bun.IsChecked== true) entree.Bun = false;
+                    if (ketchup.IsChecked == true) entree.Ketchup = false;
+                    if (mustard.IsChecked == true) entree.Mustard = false;
+                    if (pickle.IsChecked == true) entree.Pickle = false;
+                    if (cheese.IsChecked == true) entree.Cheese = false;
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(entree.ToString());
+
+                    (Application.Current.MainWindow as MainWindow).Items.Add(entree);
+                    
                     double total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += entree.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
                     return;
                 case "doubleDraugr":
                     DoubleDraugr draugr = new DoubleDraugr();
-                    if (bun.IsChecked == true) draugr.Bun = true;
-                    if (ketchup.IsChecked == true) draugr.Ketchup = true;
-                    if (mustard.IsChecked == true) draugr.Mustard = true;
-                    if (pickle.IsChecked == true) draugr.Pickle = true;
-                    if (cheese.IsChecked == true) draugr.Cheese = true;
-                    if (tomato.IsChecked == true) draugr.Tomato = true;
-                    if (lettuce.IsChecked == true) draugr.Lettuce = true;
-                    if (mayo.IsChecked == true) draugr.Mayo = true;
+                    if (bun.IsChecked == true) draugr.Bun = false;
+                    if (ketchup.IsChecked == true) draugr.Ketchup = false;
+                    if (mustard.IsChecked == true) draugr.Mustard = false;
+                    if (pickle.IsChecked == true) draugr.Pickle = false;
+                    if (cheese.IsChecked == true) draugr.Cheese = false;
+                    if (tomato.IsChecked == true) draugr.Tomato = false;
+                    if (lettuce.IsChecked == true) draugr.Lettuce = false;
+                    if (mayo.IsChecked == true) draugr.Mayo = false;
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += draugr.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
 
+                    (Application.Current.MainWindow as MainWindow).Items.Add(draugr);
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(draugr.ToString());
                     return;
 
 
                 case "gardenOrcOmelette":
                     GardenOrcOmelette omellette = new GardenOrcOmelette();
-                    if (broccoli.IsChecked == true) omellette.Broccoli = true;
-                    if (mushroom.IsChecked == true) omellette.Mushrooms = true;
-                    if (tomato.IsChecked == true) omellette.Tomato = true;
-                    if (cheddar.IsChecked == true) omellette.Cheddar = true;
+                    if (broccoli.IsChecked == true) omellette.Broccoli = false;
+                    if (mushroom.IsChecked == true) omellette.Mushrooms = false;
+                    if (tomato.IsChecked == true) omellette.Tomato = false;
+                    if (cheddar.IsChecked == true) omellette.Cheddar = false;
                     
 
 
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(omellette.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(omellette);
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += omellette.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
@@ -100,14 +105,15 @@ namespace PointOfSale
                 case "phillyPoacher":
                     
                     PhillyPoacher philly = new PhillyPoacher();
-                    if (sirloin.IsChecked == true) philly.Sirloin = true;
-                    if (onion.IsChecked == true) philly.Onion = true;
-                    if (roll.IsChecked == true) philly.Roll = true;
+                    if (sirloin.IsChecked == true) philly.Sirloin = false;
+                    if (onion.IsChecked == true) philly.Onion = false;
+                    if (roll.IsChecked == true) philly.Roll = false;
                     
 
 
 
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(philly.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(philly);
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += philly.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
@@ -116,37 +122,39 @@ namespace PointOfSale
                 case "smokeHouseSkeleton":
 
                     SmokehouseSkeleton house = new SmokehouseSkeleton();
-                    if (hashBrowns.IsChecked == true) house.HashBrowns = true;
-                    if (sausage.IsChecked == true) house.SausageLink = true;
-                    if (pancakes.IsChecked == true) house.Pancake = true;
-                    if (eggs.IsChecked == true) house.Egg = true;
+                    if (hashBrowns.IsChecked == true) house.HashBrowns = false;
+                    if (sausage.IsChecked == true) house.SausageLink = false;
+                    if (pancakes.IsChecked == true) house.Pancake = false;
+                    if (eggs.IsChecked == true) house.Egg = false;
 
 
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += house.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(house.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(house);
                     return;
 
 
                 case "thalmorTriple":
 
                     ThalmorTriple thalmor = new ThalmorTriple();
-                    if (bun.IsChecked == true) thalmor.Bun = true;
-                    if (ketchup.IsChecked == true) thalmor.Ketchup = true;
-                    if (mustard.IsChecked == true) thalmor.Mustard = true;
-                    if (pickle.IsChecked == true) thalmor.Pickle = true;
-                    if (cheese.IsChecked == true) thalmor.Cheese = true;
-                    if (tomato.IsChecked == true) thalmor.Tomato = true;
-                    if (lettuce.IsChecked == true) thalmor.Lettuce = true;
-                    if (mayo.IsChecked == true) thalmor.Mayo = true;
-                    if (eggs.IsChecked == true) thalmor.Egg = true;
-                    if (bacon.IsChecked == true) thalmor.Bacon = true;
+                    if (bun.IsChecked == true) thalmor.Bun = false;
+                    if (ketchup.IsChecked == true) thalmor.Ketchup = false;
+                    if (mustard.IsChecked == true) thalmor.Mustard = false;
+                    if (pickle.IsChecked == true) thalmor.Pickle = false;
+                    if (cheese.IsChecked == true) thalmor.Cheese = false;
+                    if (tomato.IsChecked == true) thalmor.Tomato = false;
+                    if (lettuce.IsChecked == true) thalmor.Lettuce = false;
+                    if (mayo.IsChecked == true) thalmor.Mayo = false;
+                    if (eggs.IsChecked == true) thalmor.Egg = false;
+                    if (bacon.IsChecked == true) thalmor.Bacon = false;
 
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += thalmor.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(thalmor.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(thalmor);
                     return;
 
                 case "thugsTbone":
@@ -155,6 +163,7 @@ namespace PointOfSale
                     total += bone.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(bone.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(bone);
                     return;
             }
         }

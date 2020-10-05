@@ -83,5 +83,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             MadOtarGrits side = new MadOtarGrits();
             Assert.IsAssignableFrom<Side>(side);
         }
+
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void HoldingShouldNotifyPropertiesChange(Size s)
+        {
+            MadOtarGrits side = new MadOtarGrits();
+            System.Action p = () =>
+            {
+                side.Size = s;
+
+            };
+            Assert.PropertyChanged(side, "Size", p);
+            Assert.PropertyChanged(side, "Price", p);
+            Assert.PropertyChanged(side, "Calories", p);
+
+
+        }
     }
 }

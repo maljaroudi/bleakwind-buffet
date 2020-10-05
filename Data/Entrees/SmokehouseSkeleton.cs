@@ -7,13 +7,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Provides the product detail
     /// </summary>
-    public class SmokehouseSkeleton : Entree
+    public class SmokehouseSkeleton : Entree, INotifyPropertyChanged
     {
         /// <summary>
         /// Price initalizer sets it across all options
@@ -37,6 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (HashBrowns == false) SpecialInstructions.Add("Hold hash browns");
                 if (Pancake == false) SpecialInstructions.Add("Hold pancakes");
                 if (Egg == false) SpecialInstructions.Add("Hold eggs");
+                OnPropertyChanged();
                 return SpecialInstructions;
             }
 
@@ -50,22 +52,74 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Smokehouse Skeleton";
         }
+
+
+
+        private bool _susageLink = true;
+
+
         /// <summary>
         /// Sausage option, defaults to true
         /// </summary>
-        public bool SausageLink { get; set; } = true;
+        public bool SausageLink
+        {
+            get { return _susageLink; }
+            set
+            {
+                _susageLink = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _hashBrowns = true;
+
         /// <summary>
         /// Hash browns option, set to true
         /// </summary>
-        public bool HashBrowns { get; set; } = true;
+        public bool HashBrowns
+        {
+            get { return _hashBrowns; }
+            set
+            {
+                _hashBrowns = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+
+        private bool _pancake = true;
+
         /// <summary>
         /// Pancake option, defaults to true
         /// </summary>
-        public bool Pancake { get; set; } = true;
+        public bool Pancake
+        {
+            get { return _pancake; }
+            set
+            {
+                _pancake = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private bool _egg = true;
         /// <summary>
         /// egg option, set to true
         /// </summary>
-        public bool Egg { get; set; } = true;
+        public bool Egg
+        {
+            get { return _egg; }
+            set
+            {
+                _egg = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
 
 

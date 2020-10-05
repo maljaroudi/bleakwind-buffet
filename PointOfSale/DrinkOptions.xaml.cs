@@ -83,6 +83,8 @@ namespace PointOfSale
                     if (this.sizer.Text == "Medium") drink.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") drink.Size = BleakwindBuffet.Data.Enums.Size.Large;
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(drink.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(drink);
+
                     double total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += drink.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
@@ -96,6 +98,7 @@ namespace PointOfSale
                     if (this.sizer.Text == "Medium") coffee.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") coffee.Size = BleakwindBuffet.Data.Enums.Size.Large;
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(coffee.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(coffee);
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += coffee.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
@@ -107,6 +110,7 @@ namespace PointOfSale
                     if (this.sizer.Text == "Medium") milk.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") milk.Size = BleakwindBuffet.Data.Enums.Size.Large;
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(milk.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(milk);
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += milk.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
@@ -124,18 +128,20 @@ namespace PointOfSale
                     if (this.sizer.Text == "Medium") soda.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") soda.Size = BleakwindBuffet.Data.Enums.Size.Large;
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(soda.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(soda);
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += soda.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
                     return;
                 case "warriorWater":
                     WarriorWater water = new WarriorWater();
-                    if (this.ice.IsChecked == true) water.Ice = true;
+                    if (this.ice.IsChecked == false) water.Ice = false;
 
                     if (this.sizer.Text == "Small") water.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") water.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") water.Size = BleakwindBuffet.Data.Enums.Size.Large;
                     (Application.Current.MainWindow as MainWindow).Lister.Items.Add(water.ToString());
+                    (Application.Current.MainWindow as MainWindow).Items.Add(water);
                     total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
                     total += water.Price;
                     (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());

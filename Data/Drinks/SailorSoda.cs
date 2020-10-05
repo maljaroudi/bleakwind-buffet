@@ -77,7 +77,7 @@ namespace BleakwindBuffet.Data.Drinks
                 else
                 {
                     SpecialInstructions.Add("Hold ice");
-                    
+                    OnPropertyChanged();
                 }
                 return SpecialInstructions;
             }
@@ -85,14 +85,35 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
 
+        private bool _ice = true;
         /// <summary>
-        /// Ice, defaults to true
+        /// Whether the costumer needs ice default to no.
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
+
+        private SodaFlavor _flavor = SodaFlavor.Cherry;
         /// <summary>
         /// Flavor, defaults to Cherry
         /// </summary>
-        public SodaFlavor Flavor { get; set;} = SodaFlavor.Cherry;
+        public SodaFlavor Flavor
+        {
+            get { return _flavor; }
+            set
+            {
+                _flavor = value;
+                OnPropertyChanged();
+                OnPropertyChanged("SpecialInstructions");
+            }
+        }
 
         /// <summary>
         /// Overrisde ToString() to show the product name
