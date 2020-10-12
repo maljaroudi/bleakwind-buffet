@@ -51,18 +51,25 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">button</param>
         /// <param name="e">press</param>
-        void ShowDrinkOptions(object sender, RoutedEventArgs e)
+        public void ShowDrinkOptions(object sender, RoutedEventArgs e)
         {
             
             DrinkOptions drinkOption = new DrinkOptions();
-            drinkOption.StringGetter = (sender as Button).Name;
-            if (drinkOption.StringGetter == "candleHearthCoffee")
+
+            if (sender is Button) drinkOption.StringGetter = (sender as Button).Name;
+            else if (sender is ListBox box)
+            {
+                drinkOption.modifier = true;
+                drinkOption.Item = (Drink)box.SelectedItem;
+
+            }
+            if (drinkOption.StringGetter == "candleHearthCoffee" ) 
             {
                 drinkOption.decaf.IsEnabled = true;
                 drinkOption.cream.IsEnabled = true;
             }
 
-            else if (drinkOption.StringGetter == "sailorSoda")
+            else if (drinkOption.StringGetter == "sailorSoda" )
             {
                 drinkOption.blackberry.IsEnabled = true;
                 drinkOption.cherry.IsEnabled = true;
@@ -73,13 +80,15 @@ namespace PointOfSale
                 drinkOption.grapefruit.IsEnabled = true;
                 drinkOption.ice.IsChecked = true;
             }
-            else if (drinkOption.StringGetter == "warriorWater")
+            else if (drinkOption.StringGetter == "warriorWater" )
             {
                 drinkOption.ice.IsChecked = true;
 
             }
-                (this.Parent as Border).Child = drinkOption;
 
+            if (sender is Button)
+                (this.Parent as Border).Child = drinkOption;
+            
 
 
 

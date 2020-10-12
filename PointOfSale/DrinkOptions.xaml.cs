@@ -31,11 +31,11 @@ namespace PointOfSale
         /// <summary>
         /// Gets the string from the previous user control and reserve it to identify the product
         /// </summary>
-        public string StringGetter { get; set; } 
+        public string StringGetter { get; set; }
         /// <summary>
         /// unncessary value for drink type
         /// </summary>
-        public Drink DrinkType { get; set; }
+        public bool modifier { get; set; } = false;
         /// <summary>
         /// Initializer
         /// </summary>
@@ -45,6 +45,10 @@ namespace PointOfSale
             
 
         }
+
+
+        public Drink Item { get; set; }
+
 
         /// <summary>
         /// Slider method to change value for side in increment of 5
@@ -74,6 +78,9 @@ namespace PointOfSale
         /// <param name="e">event handler when button pressed</param>
         void OrderTheItem(object sender, RoutedEventArgs e)
         {
+
+
+
             switch (StringGetter)
             {
                 case "aretinoAppleJuice":
@@ -82,12 +89,8 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") drink.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") drink.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") drink.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(drink.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(drink);
-
-                    double total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += drink.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(drink);
+                    
                     return;
                 case "candleHearthCoffee":
                     CandlehearthCoffee coffee = new CandlehearthCoffee();
@@ -97,11 +100,9 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") coffee.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") coffee.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") coffee.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(coffee.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(coffee);
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += coffee.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(coffee);
+                    
                     return;
                 case "markarthMilk":
                     MarkarthMilk milk = new MarkarthMilk();
@@ -109,15 +110,13 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") milk.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") milk.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") milk.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(milk.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(milk);
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += milk.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(milk);
+                    
                     return;
                 case "sailorSoda":
                     SailorSoda soda = new SailorSoda();
-                    if (this.ice.IsChecked == true) soda.Ice = true;
+                    if (this.ice.IsChecked == false) soda.Ice = false;
                     if (this.blackberry.IsChecked == true) soda.Flavor = SodaFlavor.Blackberry;
                     if (this.cherry.IsChecked == true) soda.Flavor = SodaFlavor.Cherry;
                     if (this.lemon.IsChecked == true) soda.Flavor = SodaFlavor.Lemon;
@@ -127,11 +126,9 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") soda.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") soda.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") soda.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(soda.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(soda);
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += soda.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(soda);
+                    
                     return;
                 case "warriorWater":
                     WarriorWater water = new WarriorWater();
@@ -140,14 +137,12 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") water.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") water.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") water.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(water.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(water);
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += water.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(water);
+                    
                     return;
-                case "backButton":
-                    return;
+                    
+
             }
 
 

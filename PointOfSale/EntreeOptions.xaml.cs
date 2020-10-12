@@ -3,6 +3,7 @@
  * Class name: EntreeOptions.cs
  * Purpose: Show all Entree Options
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,7 @@ namespace PointOfSale
         /// <param name="e">press</param>
         private void OrderItem(object sender, RoutedEventArgs e)
         {
+
             switch (StringGetter)
             {
                 case "briarheartBurger":
@@ -60,13 +62,9 @@ namespace PointOfSale
                     if (mustard.IsChecked == true) entree.Mustard = false;
                     if (pickle.IsChecked == true) entree.Pickle = false;
                     if (cheese.IsChecked == true) entree.Cheese = false;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(entree.ToString());
+                   
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(entree);
 
-                    (Application.Current.MainWindow as MainWindow).Items.Add(entree);
-                    
-                    double total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += entree.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
                     return;
                 case "doubleDraugr":
                     DoubleDraugr draugr = new DoubleDraugr();
@@ -78,12 +76,9 @@ namespace PointOfSale
                     if (tomato.IsChecked == true) draugr.Tomato = false;
                     if (lettuce.IsChecked == true) draugr.Lettuce = false;
                     if (mayo.IsChecked == true) draugr.Mayo = false;
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += draugr.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
 
-                    (Application.Current.MainWindow as MainWindow).Items.Add(draugr);
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(draugr.ToString());
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(draugr);
+                    
                     return;
 
 
@@ -96,11 +91,9 @@ namespace PointOfSale
                     
 
 
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(omellette.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(omellette);
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += omellette.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(omellette);
+
                     return;
                 case "phillyPoacher":
                     
@@ -112,11 +105,9 @@ namespace PointOfSale
 
 
 
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(philly.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(philly);
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += philly.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(philly);
+
                     return;
 
                 case "smokeHouseSkeleton":
@@ -128,11 +119,8 @@ namespace PointOfSale
                     if (eggs.IsChecked == true) house.Egg = false;
 
 
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += house.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(house.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(house);
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(house);
                     return;
 
 
@@ -150,20 +138,16 @@ namespace PointOfSale
                     if (eggs.IsChecked == true) thalmor.Egg = false;
                     if (bacon.IsChecked == true) thalmor.Bacon = false;
 
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += thalmor.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(thalmor.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(thalmor);
+
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(thalmor);
                     return;
 
                 case "thugsTbone":
                     ThugsTBone bone = new ThugsTBone();
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += bone.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(bone.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(bone);
+
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(bone);
                     return;
             }
         }

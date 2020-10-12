@@ -49,48 +49,37 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") fries.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") fries.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") fries.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(fries.ToString());
                     
-                    (Application.Current.MainWindow as MainWindow).Items.Add(fries);
                     
-                    double total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += fries.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(fries);
+
                     return;
                 case "friedMiraak":
                     FriedMiraak fried = new FriedMiraak();
                     if (this.sizer.Text == "Small") fried.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") fried.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") fried.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(fried.ToString());
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += fried.Price;
-                    (Application.Current.MainWindow as MainWindow).Items.Add(fried);
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(fried);
                     return;
                 case "madOtarGrits":
                     MadOtarGrits mad = new MadOtarGrits();
                     if (this.sizer.Text == "Small") mad.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") mad.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") mad.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(mad.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(mad);
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(mad);
 
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += mad.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString());
+
                     return;
                 case "vokunSalad":
                     VokunSalad salad = new VokunSalad();
                     if (this.sizer.Text == "Small") salad.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") salad.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") salad.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    (Application.Current.MainWindow as MainWindow).Lister.Items.Add(salad.ToString());
-                    (Application.Current.MainWindow as MainWindow).Items.Add(salad);
+                    
+                    (Application.Current.MainWindow as MainWindow).curOrder.Add(salad);
 
-                    total = double.Parse((Application.Current.MainWindow as MainWindow).priceModifier.Text);
-                    total += salad.Price;
-                    (Application.Current.MainWindow as MainWindow).priceModifier.Text = (total.ToString()) ;
                     return;
             }
         }

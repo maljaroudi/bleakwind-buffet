@@ -18,6 +18,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+
 namespace PointOfSale
 {
     /// <summary>
@@ -27,7 +29,10 @@ namespace PointOfSale
     public partial class MainWindow : Window
     {
 
-        public List<IOrderItem> Items { get; set; } = new List<IOrderItem>();
+        public Order curOrder
+        {
+            get => ((Order)DataContext);
+        }
         /// <summary>
         /// Unnecessary list for orders, not used
         /// </summary>
@@ -43,13 +48,25 @@ namespace PointOfSale
 
         }
 
-        private void ListerSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void removeFromOrder_Click(object sender, RoutedEventArgs e)
         {
-            int indexGetter = ((ListBox)sender).SelectedIndex;
-            if (((ListBox)sender).SelectedItem != null)
-            {
-                specialInstruct.Text = string.Join(",", Items[indexGetter].SpecialInstructions);
-            }
+            var sel = Lister.SelectedItem;
+            curOrder.Remove((IOrderItem)sel);
         }
+
+        private void newOrder_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Order();
+        }
+
+
+        //public void OrderListUpdater()
+        //{
+        //Items.AddRange(curOrder.Orders);
+        //}
+
+
+
+
     }
 }
