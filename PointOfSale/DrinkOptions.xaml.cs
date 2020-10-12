@@ -47,7 +47,7 @@ namespace PointOfSale
         }
 
 
-        public Drink Item { get; set; }
+        public IOrderItem Item { get; set; }
 
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace PointOfSale
         /// <param name="e">event handler when button pressed</param>
         void OrderTheItem(object sender, RoutedEventArgs e)
         {
-
+            
 
 
             switch (StringGetter)
@@ -89,6 +89,13 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") drink.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") drink.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") drink.Size = BleakwindBuffet.Data.Enums.Size.Large;
+
+                    if (modifier == true)
+                    {
+                        ((AretinoAppleJuice)Item).Size = drink.Size;
+                        ((AretinoAppleJuice)Item).Ice = drink.Ice;
+                    }
+
                     (Application.Current.MainWindow as MainWindow).curOrder.Add(drink);
                     
                     return;
@@ -100,7 +107,22 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") coffee.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") coffee.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") coffee.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    
+                    if (modifier == true)
+                    {
+
+                        foreach(IOrderItem item in (Application.Current.MainWindow as MainWindow).curOrder)
+                        {
+                            if (item.GetType().IsAssignableFrom(coffee.GetType()))
+                            {
+                                ((CandlehearthCoffee)item).Size = coffee.Size;
+                                ((CandlehearthCoffee)item).Ice = coffee.Ice;
+                                ((CandlehearthCoffee)item).Decaf = coffee.Decaf;
+                                ((CandlehearthCoffee)item).RoomForCream = coffee.RoomForCream;
+                            }
+                        }
+                        
+                    }
+                    else
                     (Application.Current.MainWindow as MainWindow).curOrder.Add(coffee);
                     
                     return;
@@ -110,7 +132,22 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") milk.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") milk.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") milk.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    
+                    if (modifier == true)
+                    {
+
+                        foreach (IOrderItem item in (Application.Current.MainWindow as MainWindow).curOrder)
+                        {
+                            if (item.GetType().IsAssignableFrom(milk.GetType()))
+                            {
+                                ((CandlehearthCoffee)item).Size = milk.Size;
+                                ((CandlehearthCoffee)item).Ice = milk.Ice;
+                                
+
+                            }
+                        }
+
+                    }
+                    else
                     (Application.Current.MainWindow as MainWindow).curOrder.Add(milk);
                     
                     return;

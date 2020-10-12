@@ -3,6 +3,7 @@
  * Class name: DrinkWindow.cs
  * Purpose: Show all drinks available
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
@@ -55,22 +56,27 @@ namespace PointOfSale
         {
             
             DrinkOptions drinkOption = new DrinkOptions();
-
+            string tess = "";
             if (sender is Button) drinkOption.StringGetter = (sender as Button).Name;
+            
             else if (sender is ListBox box)
             {
                 drinkOption.modifier = true;
-                drinkOption.Item = (Drink)box.SelectedItem;
+                tess = box.SelectedItem.ToString();
+                drinkOption.Item = (IOrderItem)(box.SelectedItem);
+                drinkOption.ordering.Tag = box.SelectedItem;
 
             }
-            if (drinkOption.StringGetter == "candleHearthCoffee" ) 
+            if (drinkOption.StringGetter == "candleHearthCoffee"  || tess.Contains("Coffee")) 
             {
+                drinkOption.StringGetter = "candleHearthCoffee";
                 drinkOption.decaf.IsEnabled = true;
                 drinkOption.cream.IsEnabled = true;
             }
 
-            else if (drinkOption.StringGetter == "sailorSoda" )
+            else if (drinkOption.StringGetter == "sailorSoda" || tess.Contains("Soda"))
             {
+                drinkOption.StringGetter = "sailorSoda";
                 drinkOption.blackberry.IsEnabled = true;
                 drinkOption.cherry.IsEnabled = true;
                 drinkOption.cherry.IsChecked = true;
@@ -80,15 +86,16 @@ namespace PointOfSale
                 drinkOption.grapefruit.IsEnabled = true;
                 drinkOption.ice.IsChecked = true;
             }
-            else if (drinkOption.StringGetter == "warriorWater" )
+            else if (drinkOption.StringGetter == "warriorWater" || tess.Contains("Water"))
             {
+                drinkOption.StringGetter = "warriorWater";
                 drinkOption.ice.IsChecked = true;
 
             }
 
             if (sender is Button)
                 (this.Parent as Border).Child = drinkOption;
-            
+            else (Application.Current.MainWindow as MainWindow).mainBorder.Child = drinkOption;
 
 
 

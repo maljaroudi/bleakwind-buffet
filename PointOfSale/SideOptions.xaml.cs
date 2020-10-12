@@ -3,6 +3,7 @@
  * Class name: SideOptions.cs
  * Purpose: Show all side options
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,8 @@ namespace PointOfSale
         /// Takes the chosen menu item from button name
         /// </summary>
         public string StringGetter { get; set; }
+
+        
         /// <summary>
         /// Initializer
         /// </summary>
@@ -42,6 +45,7 @@ namespace PointOfSale
         /// <param name="e">press</param>
         private void OrderTheItem(object sender, RoutedEventArgs e)
         {
+            
             switch (StringGetter)
             {
                 case "dragonbornWaffleFries":

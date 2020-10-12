@@ -15,7 +15,7 @@
         <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="3" Height="20" Width="86">Order Detail</TextBlock>
         <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="3" Height="20" Width="86" Text="{Binding Number}"/>
         <Border BorderThickness="2" BorderBrush="Black" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1" >
-            <ListBox Name="Lister"  ItemsSource="{Binding Path=Orders}"></ListBox>
+            <ListBox Name="Lister"  ItemsSource="{Binding Path=Orders}" MouseDoubleClick="Lister_MouseDoubleClick"></ListBox>
         </Border>
 
         <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="3" Height="20" Width="95" Grid.ColumnSpan="2" >Price($):</TextBlock>

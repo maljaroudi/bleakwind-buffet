@@ -59,6 +59,18 @@ namespace PointOfSale
             DataContext = new Order();
         }
 
+        private void Lister_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+                
+                var sel = Lister.SelectedItem;
+            if (sel is Drink)
+            {
+                DrinksWindow tesso = new DrinksWindow();
+                tesso.ShowDrinkOptions(sender, e);
+            }
+        }
+
+
 
         //public void OrderListUpdater()
         //{
