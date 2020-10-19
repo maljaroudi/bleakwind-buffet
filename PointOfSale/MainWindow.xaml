@@ -15,7 +15,7 @@
         <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="3" Height="20" Width="86">Order Detail</TextBlock>
         <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="3" Height="20" Width="86" Text="{Binding Number}"/>
         <Border BorderThickness="2" BorderBrush="Black" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1" >
-            <ListBox Name="Lister"  ItemsSource="{Binding Path=Orders}" MouseDoubleClick="Lister_MouseDoubleClick"></ListBox>
+            <ListBox Name="Lister"  ItemsSource="{Binding Path=Orders}" MouseDoubleClick="Lister_MouseDoubleClick" MouseLeftButtonUp="Lister_MouseLeftButtonUp" ></ListBox>
         </Border>
 
         <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="3" Height="20" Width="95" Grid.ColumnSpan="2" >Price($):</TextBlock>
@@ -23,7 +23,7 @@
         <TextBlock FontSize="15" FontWeight="Bold"  Grid.Column="3" Grid.Row="4" Height="20" Width="95"   HorizontalAlignment="Left" VerticalAlignment="Center" >Total($):</TextBlock>
 
         <TextBlock FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Height="20" Width="141">Special Instructions:</TextBlock>
-        <TextBlock Name="specialInstruct" FontSize="15" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Height="20" Width="0" Margin="0,1,0,0"></TextBlock>
+        <TextBlock Name="specialInstruct"  FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4"   ></TextBlock>
 
 
         <TextBlock  FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="3" Height="20" Width="40" Text="{Binding Path=Subtotal}"/>
@@ -34,6 +34,7 @@
 
         <Button x:Name="removeFromOrder" Click="removeFromOrder_Click" Content="Remove" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="55" Height="35" Grid.ColumnSpan="2" Margin="18,0,0,0"></Button>
         <Button x:Name="newOrder" Click="newOrder_Click" Content="New" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="55" Height="35"></Button>
+        <Button Name="completeButton" Click="CompleteOrder" Content="Complete Order" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Width="55" Height="35"></Button>
 
 
 
@@ -43,8 +44,7 @@
 
 
 
-
-        <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"/>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="0.1*"/>
@@ -57,6 +57,7 @@
             <RowDefinition Height="131*"/>
             <RowDefinition Height="26*"/>
             <RowDefinition Height="96*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
 

@@ -62,8 +62,8 @@ namespace PointOfSale
                     if (mustard.IsChecked == true) entree.Mustard = false;
                     if (pickle.IsChecked == true) entree.Pickle = false;
                     if (cheese.IsChecked == true) entree.Cheese = false;
-                   
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(entree);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Entree == null) (Application.Current.MainWindow as MainWindow).Combo.Entree = entree;
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(entree);
 
                     return;
                 case "doubleDraugr":
@@ -76,8 +76,9 @@ namespace PointOfSale
                     if (tomato.IsChecked == true) draugr.Tomato = false;
                     if (lettuce.IsChecked == true) draugr.Lettuce = false;
                     if (mayo.IsChecked == true) draugr.Mayo = false;
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Entree == null) (Application.Current.MainWindow as MainWindow).Combo.Entree = draugr;
 
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(draugr);
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(draugr);
                     
                     return;
 
@@ -88,11 +89,12 @@ namespace PointOfSale
                     if (mushroom.IsChecked == true) omellette.Mushrooms = false;
                     if (tomato.IsChecked == true) omellette.Tomato = false;
                     if (cheddar.IsChecked == true) omellette.Cheddar = false;
-                    
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Entree == null) (Application.Current.MainWindow as MainWindow).Combo.Entree = omellette;
 
 
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(omellette);
+
+
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(omellette);
 
                     return;
                 case "phillyPoacher":
@@ -101,12 +103,13 @@ namespace PointOfSale
                     if (sirloin.IsChecked == true) philly.Sirloin = false;
                     if (onion.IsChecked == true) philly.Onion = false;
                     if (roll.IsChecked == true) philly.Roll = false;
-                    
 
 
 
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(philly);
+
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Entree == null) (Application.Current.MainWindow as MainWindow).Combo.Entree = philly;
+
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(philly);
 
                     return;
 
@@ -118,9 +121,10 @@ namespace PointOfSale
                     if (pancakes.IsChecked == true) house.Pancake = false;
                     if (eggs.IsChecked == true) house.Egg = false;
 
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Entree == null) (Application.Current.MainWindow as MainWindow).Combo.Entree = house;
 
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(house);
+
+                   else (Application.Current.MainWindow as MainWindow).curOrder.Add(house);
                     return;
 
 
@@ -139,15 +143,17 @@ namespace PointOfSale
                     if (bacon.IsChecked == true) thalmor.Bacon = false;
 
 
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(thalmor);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Entree == null) (Application.Current.MainWindow as MainWindow).Combo.Entree = thalmor;
+
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(thalmor);
                     return;
 
                 case "thugsTbone":
                     ThugsTBone bone = new ThugsTBone();
 
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(bone);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Entree == null) (Application.Current.MainWindow as MainWindow).Combo.Entree = bone;
+
+                    else(Application.Current.MainWindow as MainWindow).curOrder.Add(bone);
                     return;
             }
         }

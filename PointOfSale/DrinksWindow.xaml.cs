@@ -67,6 +67,11 @@ namespace PointOfSale
                 drinkOption.ordering.Tag = box.SelectedItem;
 
             }
+            if ((Application.Current.MainWindow as MainWindow).ComboChecker)
+            {
+                drinkOption.Combo.IsChecked = true;
+                drinkOption.Combo.IsEnabled = false;
+            }
             if (drinkOption.StringGetter == "candleHearthCoffee"  || tess.Contains("Coffee")) 
             {
                 drinkOption.StringGetter = "candleHearthCoffee";

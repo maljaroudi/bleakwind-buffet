@@ -3,6 +3,7 @@
  * Class name: OrderWindow.cs
  * Purpose: Show all menu categories 
  */
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -59,5 +60,21 @@ namespace PointOfSale
         {
             (this.Parent as Border).Child = new DrinksWindow();
         }
+
+
+        private void ComboShow(object sender, RoutedEventArgs e)
+        {
+            var checker = (Application.Current.MainWindow as MainWindow).Combo;
+            if ((Application.Current.MainWindow as MainWindow).ComboChecker && 
+                (checker.Entree != null && (checker.Drink != null || checker.Side!= null)) ||
+                (checker.Drink != null && (checker.Entree != null || checker.Side != null)) ||
+                (checker.Side != null && (checker.Entree != null || checker.Drink != null)))
+            {
+                (Application.Current.MainWindow as MainWindow).curOrder.Add(checker);
+                (Application.Current.MainWindow as MainWindow).ComboChecker = false;
+            }
+        }
+
+
     }
 }

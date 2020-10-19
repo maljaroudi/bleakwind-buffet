@@ -5,14 +5,18 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
+using System.Runtime.CompilerServices;
 
 namespace BleakwindBuffet.Data
 {
     /// <summary>
     /// Provides an interface for all menu items
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem: INotifyPropertyChanged
+
+
     {
         /// <summary>
         /// Price in USD
@@ -29,6 +33,11 @@ namespace BleakwindBuffet.Data
         /// Special Instructions for the item
         /// </summary>
         List<String> SpecialInstructions { get; }
+
+
+
+
+
 
 
 

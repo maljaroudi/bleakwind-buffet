@@ -12,7 +12,18 @@ namespace BleakwindBuffet.Data
 {
     public class Order : ICollection, INotifyPropertyChanged, INotifyCollectionChanged
     {
-        public ICollection<IOrderItem> Orders { get; set; } = new ObservableCollection<IOrderItem>();
+
+
+
+        public ObservableCollection<IOrderItem> Orders { get; set; } = new ObservableCollection<IOrderItem>();
+
+
+
+
+
+
+
+
 
         public List<IOrderItem> ModifiedItems { get; set; }
 
@@ -81,13 +92,16 @@ namespace BleakwindBuffet.Data
         {
             Number = nextOrderNumber;
             nextOrderNumber++;
-
+            ModifiedItems = new List<IOrderItem>();
+            Orders.CollectionChanged += ItemObservableCollection_CollectionChanged;
         }
+
+
 
         public void Add(IOrderItem item)
         {
             Orders.Add(item);
-            if (CollectionChanged != null) CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add));
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));
             OnPropertyChanged("Subtotal");
             OnPropertyChanged("Tax");
             OnPropertyChanged("Total");
@@ -98,33 +112,31 @@ namespace BleakwindBuffet.Data
         public void Remove(IOrderItem item)
         {
             Orders.Remove(item);
-            if (CollectionChanged != null) CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove));
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item));
             OnPropertyChanged("Subtotal");
             OnPropertyChanged("Tax");
             OnPropertyChanged("Total");
             OnPropertyChanged("Calories");
         }
 
-        void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+
+
+
+        protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
-            if (e.NewItems != null)
-                foreach (var item in e.NewItems)
-                    ((INotifyPropertyChanged)item).PropertyChanged += OnReplacementChanged;
-            if (e.OldItems == null) return;
-            {
-                foreach (var item in e.OldItems)
-                    ((INotifyPropertyChanged)item).PropertyChanged -= OnReplacementChanged;
-            }
+            var handler = CollectionChanged;
+            if (handler != null)
+                handler(this, e);
         }
 
-        private void OnReplacementChanged(object sender, PropertyChangedEventArgs e)
+
+        void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace));
-            OnPropertyChanged("Subtotal");
-            OnPropertyChanged("Tax");
-            OnPropertyChanged("Total");
-            OnPropertyChanged("Calories");
+            IOrderItem item = sender as IOrderItem;
+            if (item != null)
+                ModifiedItems.Add(item);
         }
+
 
 
 
@@ -139,6 +151,45 @@ namespace BleakwindBuffet.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+
+
+        private void ItemObservableCollection_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            
+                if (e.NewItems != null)
+                {
+                    foreach (IOrderItem newItem in e.NewItems)
+                    {
+                        ModifiedItems.Add(newItem);
+                    //Add listener for each item on PropertyChanged event
+                    newItem.PropertyChanged += this.OnItemPropertyChanged;
+                    }
+                }
+
+                if (e.OldItems != null)
+                {
+                    foreach (IOrderItem oldItem in e.OldItems)
+                    {
+                        ModifiedItems.Add(oldItem);
+
+                        oldItem.PropertyChanged -= this.OnItemPropertyChanged;
+                    }
+                }
+            
+        }
+
+        private void ItemObservableCollection_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            NotifyCollectionChangedEventArgs args = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset);
+            OnCollectionChanged(args);
+
+        }
+
+
+
+
+
+
         public void CopyTo(Array array, int index)
         {
             ((ICollection)Orders).CopyTo(array, index);
@@ -148,5 +199,8 @@ namespace BleakwindBuffet.Data
         {
             return ((IEnumerable)Orders).GetEnumerator();
         }
+
+
+
     }
 }

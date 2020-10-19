@@ -31,9 +31,11 @@ namespace BleakwindBuffet.Data.Drinks
             set 
             { 
                 _size = value;
-                OnPropertyChanged();
+                OnPropertyChanged("Size");
                 OnPropertyChanged("Price");
                 OnPropertyChanged("Calories");
+                OnPropertyChanged("SpecialInstructions");
+                
             } 
         }
         /// <summary>

@@ -41,6 +41,11 @@ namespace PointOfSale
         {
             SideOptions sideOption = new SideOptions();
             sideOption.StringGetter = (sender as Button).Name;
+            if ((Application.Current.MainWindow as MainWindow).ComboChecker)
+            {
+                sideOption.Combo.IsChecked = true;
+                sideOption.Combo.IsEnabled = false;
+            }
             (this.Parent as Border).Child = sideOption;
         }
         /// <summary>

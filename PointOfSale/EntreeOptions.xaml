@@ -15,6 +15,12 @@
             </CheckBox.LayoutTransform>
         </CheckBox>
 
+        <CheckBox Name="Combo"  Content="Combo!"  IsEnabled="True" Grid.Column="1" Grid.Row="4" FontSize="10">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
         <CheckBox Name="ketchup"  Content="Hold Ketchup"  IsEnabled="False" Grid.Column="1" Grid.Row="1" FontSize="10" VerticalAlignment="Center">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="1.5" ScaleY="1.5" />

@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Enums;
+using System.Collections.Specialized;
 
 namespace PointOfSale
 {
@@ -110,21 +111,25 @@ namespace PointOfSale
                     if (modifier == true)
                     {
 
-                        foreach(IOrderItem item in (Application.Current.MainWindow as MainWindow).curOrder)
+                        foreach (IOrderItem item in (Application.Current.MainWindow as MainWindow).curOrder.Orders)
                         {
                             if (item.GetType().IsAssignableFrom(coffee.GetType()))
                             {
-                                ((CandlehearthCoffee)item).Size = coffee.Size;
-                                ((CandlehearthCoffee)item).Ice = coffee.Ice;
-                                ((CandlehearthCoffee)item).Decaf = coffee.Decaf;
-                                ((CandlehearthCoffee)item).RoomForCream = coffee.RoomForCream;
+                                (((CandlehearthCoffee)item).Size) = coffee.Size;
+                                (((CandlehearthCoffee)item).Ice) = coffee.Ice;
+                                (((CandlehearthCoffee)item).Decaf) = coffee.Decaf;
+                                (((CandlehearthCoffee)item).RoomForCream) = coffee.RoomForCream;
+
                             }
                         }
-                        
+
                     }
                     else
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(coffee);
-                    
+                    {
+                        if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Drink == null) (Application.Current.MainWindow as MainWindow).Combo.Drink = coffee;
+
+                        else (Application.Current.MainWindow as MainWindow).curOrder.Add(coffee);
+                    }
                     return;
                 case "markarthMilk":
                     MarkarthMilk milk = new MarkarthMilk();
@@ -141,15 +146,18 @@ namespace PointOfSale
                             {
                                 ((CandlehearthCoffee)item).Size = milk.Size;
                                 ((CandlehearthCoffee)item).Ice = milk.Ice;
-                                
+
 
                             }
                         }
 
                     }
                     else
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(milk);
-                    
+                    {
+                        if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Drink == null) (Application.Current.MainWindow as MainWindow).Combo.Drink = milk;
+
+                        (Application.Current.MainWindow as MainWindow).curOrder.Add(milk);
+                    }
                     return;
                 case "sailorSoda":
                     SailorSoda soda = new SailorSoda();
@@ -163,8 +171,9 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") soda.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") soda.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") soda.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(soda);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Drink == null) (Application.Current.MainWindow as MainWindow).Combo.Drink = soda;
+
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(soda);
                     
                     return;
                 case "warriorWater":
@@ -174,8 +183,9 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") water.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") water.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") water.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(water);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Drink == null) (Application.Current.MainWindow as MainWindow).Combo.Drink = water;
+
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(water);
                     
                     return;
                     

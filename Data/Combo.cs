@@ -13,9 +13,9 @@ namespace BleakwindBuffet.Data
     {
 
         private Size size;
-        private Drink drink;
-        private Side side;
-        private Entree entree;
+        private Drink drink = null;
+        private Side side = null;
+        private Entree entree = null;
 
         public Entree Entree
         {
@@ -73,7 +73,11 @@ namespace BleakwindBuffet.Data
         {
             get
             {
-                return Drink.Price + Entree.Price + Side.Price - 1.00;
+                double totalPrice = 0;
+                if (Drink != null) totalPrice += Drink.Price;
+                if (Entree != null) totalPrice += Entree.Price;
+                if (Side != null) totalPrice += Side.Price;
+                return totalPrice-1.00;
             }
         }
 
@@ -81,14 +85,25 @@ namespace BleakwindBuffet.Data
         {
             get
             {
+                List<String> lister = new List<string>() ;
+                if (Drink != null)
+                {
+                    lister.Add(Drink.ToString());
+                    lister.AddRange(Drink.SpecialInstructions);
+                }
+                if (Entree != null)
+                {
+                    lister.Add(Entree.ToString());
+                    lister.AddRange(Entree.SpecialInstructions);
+                }
 
-                    SpecialInstructions.Add(Entree.ToString());
-                    SpecialInstructions.AddRange(Entree.SpecialInstructions);
-                    SpecialInstructions.Add(side.ToString());
-                    SpecialInstructions.AddRange(side.SpecialInstructions);
-                    SpecialInstructions.Add(Drink.ToString());
-                    SpecialInstructions.AddRange(Drink.SpecialInstructions);
-                    return SpecialInstructions;
+                if (Side != null)
+                {
+                    lister.Add(Side.ToString());
+                    lister.AddRange(Side.SpecialInstructions);
+                }
+                   
+                    return lister;
                 
             }
         }

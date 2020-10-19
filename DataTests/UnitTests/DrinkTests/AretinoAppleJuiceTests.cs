@@ -11,6 +11,7 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -131,7 +132,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(juice, "Price", p);
             Assert.PropertyChanged(juice, "Calories", p);
 
-
+            
         }
 
 

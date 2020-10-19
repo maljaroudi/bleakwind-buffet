@@ -20,7 +20,11 @@
         <Button Content="Order" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="OrderTheItem" VerticalAlignment="Top"></Button>
         <Button Content="Back" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="BackToSides" VerticalAlignment="Bottom"></Button>
 
-
+        <CheckBox Name="Combo"  Content="Combo!"  IsEnabled="True" Grid.Column="1" Grid.Row="4" FontSize="10">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
 
 
 

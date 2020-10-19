@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
@@ -12,7 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Provides the Candlehearth Coffee product detail
     /// </summary>
-    public class CandlehearthCoffee : Drink
+    public class CandlehearthCoffee : Drink, INotifyPropertyChanged
     {
         /// <summary>
         /// Sets price in relation to size of item

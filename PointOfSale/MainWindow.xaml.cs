@@ -28,10 +28,12 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool ComboChecker { get; set; }
+        public Combo Combo { get; set; } = new Combo();
 
         public Order curOrder
         {
-            get => ((Order)DataContext);
+            get => (Order)DataContext;
         }
         /// <summary>
         /// Unnecessary list for orders, not used
@@ -61,7 +63,7 @@ namespace PointOfSale
 
         private void Lister_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-                
+            
                 var sel = Lister.SelectedItem;
             if (sel is Drink)
             {
@@ -70,7 +72,19 @@ namespace PointOfSale
             }
         }
 
+        private void Lister_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            int indexGetter = ((ListBox)sender).SelectedIndex;
+            if (((ListBox)sender).SelectedItem != null)
+            {
+                specialInstruct.Text = string.Join(",", curOrder.Orders[indexGetter].SpecialInstructions);
+            }
+        }
 
+        private void CompleteOrder(object sender, RoutedEventArgs e)
+        {
+            mainBorder.Child = new OrderCompletion();
+        }
 
         //public void OrderListUpdater()
         //{

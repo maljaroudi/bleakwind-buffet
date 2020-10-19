@@ -53,9 +53,9 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") fries.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") fries.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") fries.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(fries);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Side != null) (Application.Current.MainWindow as MainWindow).Combo.Side = fries;
+
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(fries);
 
                     return;
                 case "friedMiraak":
@@ -63,16 +63,18 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") fried.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") fried.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") fried.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(fried);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Side != null) (Application.Current.MainWindow as MainWindow).Combo.Side = fried;
+
+                   else  (Application.Current.MainWindow as MainWindow).curOrder.Add(fried);
                     return;
                 case "madOtarGrits":
                     MadOtarGrits mad = new MadOtarGrits();
                     if (this.sizer.Text == "Small") mad.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") mad.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") mad.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(mad);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Side != null) (Application.Current.MainWindow as MainWindow).Combo.Side = mad;
+
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(mad);
 
 
                     return;
@@ -81,8 +83,9 @@ namespace PointOfSale
                     if (this.sizer.Text == "Small") salad.Size = BleakwindBuffet.Data.Enums.Size.Small;
                     if (this.sizer.Text == "Medium") salad.Size = BleakwindBuffet.Data.Enums.Size.Medium;
                     if (this.sizer.Text == "Large") salad.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                    
-                    (Application.Current.MainWindow as MainWindow).curOrder.Add(salad);
+                    if (Combo.IsChecked == true && (Application.Current.MainWindow as MainWindow).Combo.Side != null) (Application.Current.MainWindow as MainWindow).Combo.Side = salad;
+
+                    else (Application.Current.MainWindow as MainWindow).curOrder.Add(salad);
 
                     return;
             }

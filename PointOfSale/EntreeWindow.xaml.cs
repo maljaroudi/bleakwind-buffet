@@ -41,6 +41,12 @@ namespace PointOfSale
         {
             EntreeOptions entreeOption = new EntreeOptions();
             entreeOption.StringGetter = (sender as Button).Name;
+
+            if ((Application.Current.MainWindow as MainWindow).ComboChecker)
+            {
+                entreeOption.Combo.IsChecked = true;
+                entreeOption.Combo.IsEnabled = false;
+            }
             if (entreeOption.StringGetter == "briarheartBurger")
             {
                 entreeOption.bun.IsEnabled = true;

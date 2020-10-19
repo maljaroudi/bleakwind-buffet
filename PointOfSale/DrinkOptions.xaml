@@ -57,6 +57,14 @@
                 <ScaleTransform ScaleX="2" ScaleY="2" />
             </CheckBox.LayoutTransform>
         </CheckBox>
+
+
+        <CheckBox Name="Combo" Content="Combo!"  IsEnabled="True" Grid.Column="1" Grid.Row="2" FontSize="10" VerticalAlignment="Bottom">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
         <Button Content="Order" Name="ordering" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="OrderTheItem" VerticalAlignment="Top"></Button>
         <Button Content="Back" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="2" Grid.Column ="2"  Width="120" Height="40" Click="BackToDrinks" VerticalAlignment="Bottom"></Button>
         <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="2">Size</TextBlock>
