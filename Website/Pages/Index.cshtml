@@ -1,0 +1,149 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Bleakwind Buffet</h1>
+    <p>
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger.
+        Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!
+    </p>
+
+</div>
+
+
+
+ <! -- Code borrowed from: https://codepen.io/peterhry/pen/jdrgp -->
+<div class="starburst example" id="example-2">
+    <span id="starbust-break">
+        Get
+        <br />
+        -$1.00
+        <br />
+        On Any Combo!
+
+    </span>
+
+
+</div>
+
+<div class="menu-disp">
+    <div class="menu-disp-drinks">
+        <h2 class="Drinks">Drinks</h2>
+        <ul class="list-drinks">
+            @{
+                bool printed = false;
+            }
+            @foreach (BleakwindBuffet.Data.IOrderItem drinks in BleakwindBuffet.Data.Menu.Drinks())
+            {
+                @if (drinks.ToString().Contains("Sailor") && printed == false)
+                {
+
+
+                    <li display="block">
+                        <div class="menu-item">
+                            @if (drinks is BleakwindBuffet.Data.Drinks.SailorSoda soda)
+                            {
+                                <h3 class="name">
+                                    @soda.Size Sailor Soda
+                                </h3>
+                            }
+
+                            <h4>Flavors Available</h4>
+                            <ol>
+                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry</li>
+                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit</li>
+                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Lemon</li>
+                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Peach</li>
+                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon</li>
+                            </ol>
+                            <p class="price">Price: @drinks.Price</p>
+                            <p class="cals">Calories: @drinks.Calories</p>
+                            @if (drinks.ToString().Contains("Large"))
+                            {
+                                <hr id="sizeBreaker" />
+                                printed = true;
+                            }
+                        </div>
+                    </li>
+
+
+
+
+
+
+
+
+
+                }
+                else
+                {
+
+                    @if ((drinks.ToString().Contains("Sailor") == false))
+                    {
+                        <li display="block">
+                            <div class="menu-item">
+                                <h3 class="name">@drinks.ToString()</h3>
+                                <p class="price">Price: @drinks.Price</p>
+                                <p class="cals">Calories: @drinks.Calories</p>
+                                @if (drinks.ToString().Contains("Large"))
+                                {
+                                    <hr id="sizeBreaker" />
+                                }
+                            </div>
+                        </li>
+                    }
+
+
+                }
+
+
+            }
+
+        </ul>
+    </div>
+
+    <div class="menu-disp-Entree">
+        <h2 class="Entrees">Entrees</h2>
+        <ul class="menu-list-entree">
+            @foreach (BleakwindBuffet.Data.IOrderItem entrees in BleakwindBuffet.Data.Menu.Entrees())
+            {
+                <li>
+                    <div class="menu-item">
+                        <h3 class="name">@entrees.ToString()</h3>
+                        <p class="price">Price: @entrees.Price</p>
+                        <p class="cals">Calories: @entrees.Calories</p>
+                        <hr id="sizeBreaker" />
+                    </div>
+                </li>
+            }
+        </ul>
+
+
+    </div>
+
+    <div class="menu-disp-Sides">
+        <h2 class="Sides">Sides</h2>
+        <ul class="menu-list-sides">
+            @foreach (BleakwindBuffet.Data.IOrderItem sides in BleakwindBuffet.Data.Menu.Sides())
+            {
+                <li>
+                    <div class="menu-item">
+                        <h3 class="name">@sides.ToString()</h3>
+                        <p class="price">Price: @sides.Price</p>
+                        <p class="cals">Calories: @sides.Calories</p>
+                        @if (sides.ToString().Contains("Large"))
+                        {
+                            <hr id="sizeBreaker" />
+                        }
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+
+
+</div>

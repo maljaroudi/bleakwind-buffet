@@ -1,0 +1,210 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+body{
+    background-color:midnightblue
+}
+
+.container{
+    color: aliceblue
+}
+
+
+
+/*Code borrowed from Code borrowed from: https://codepen.io/peterhry/pen/jdrgp */
+.starburst {
+    font: 4em/1.4 'Lobster', georgia, serif;
+    background: #202020;
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+    color: #fff;
+}
+
+    .starburst,
+    .starburst span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .starburst span {
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            transform: rotate(45deg);
+        }
+
+            .starburst:before,
+            .starburst:after,
+            .starburst span:before,
+            .starburst span:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: inherit;
+                z-index: -1;
+                transform: rotate(30deg);
+            }
+
+        .starburst:after {
+            transform: rotate(-30deg);
+        }
+
+        .starburst span:after {
+            transform: rotate(30deg);
+        }
+
+        .starburst span:before {
+            transform: rotate(-30deg);
+        }
+
+.example {
+    position: absolute;
+    top: 50%;
+    margin-top: -1.25em;
+    margin-left: -1.25em;
+}
+
+
+#example-2 {
+    left: 90%;
+    top: 10%;
+    transform: rotate(-45deg);
+
+
+}
+
+#starbust-break {
+    display: block;
+    margin: 2px 0;
+    font-size: 50%;
+    background: inherit;
+    color: crimson;
+    user-select: none;
+}
+
+
+
+
+
+.menu-disp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+ul.menu-list-drinks > li {
+    display: block;
+    list-style-type: none;
+    overflow-y: auto;
+}
+
+.menu-disp-Sides {
+    display: flex;
+    list-style-type: none;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+
+
+.navbar-brand {
+    color: #E00038 !important
+}
+
+    .navbar-brand:visited {
+        color: #E00038 !important
+    }
+
+.navbar-default-color {
+    color: #E0D416 !important
+}
+.nav-link {
+    color: #E0D416 !important;
+}
+
+.navbar, .navbar-inverse {
+    background: #800020 !important;
+    border-color: white !important;
+}
+
+
+#sizeBreaker {
+    border: 1px solid red;
+}
