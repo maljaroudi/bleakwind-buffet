@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@using BleakwindBuffet.Data
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Bleakwind Buffet</h1>
@@ -30,120 +31,188 @@
 
 </div>
 
-<div class="menu-disp">
-    <div class="menu-disp-drinks">
-        <h2 class="Drinks">Drinks</h2>
-        <ul class="list-drinks">
-            @{
-                bool printed = false;
-            }
-            @foreach (BleakwindBuffet.Data.IOrderItem drinks in BleakwindBuffet.Data.Menu.Drinks())
-            {
-                @if (drinks.ToString().Contains("Sailor") && printed == false)
-                {
 
 
-                    <li display="block">
-                        <div class="menu-item">
-                            @if (drinks is BleakwindBuffet.Data.Drinks.SailorSoda soda)
-                            {
-                                <h3 class="name">
-                                    @soda.Size Sailor Soda
-                                </h3>
-                            }
-
-                            <h4>Flavors Available</h4>
-                            <ol>
-                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry</li>
-                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit</li>
-                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Lemon</li>
-                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Peach</li>
-                                <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon</li>
-                            </ol>
-                            <p class="price">Price: @drinks.Price</p>
-                            <p class="cals">Calories: @drinks.Calories</p>
-                            @if (drinks.ToString().Contains("Large"))
-                            {
-                                <hr id="sizeBreaker" />
-                                printed = true;
-                            }
-                        </div>
-                    </li>
-
-
-
-
-
-
-
-
-
-                }
-                else
-                {
-
-                    @if ((drinks.ToString().Contains("Sailor") == false))
-                    {
-                        <li display="block">
-                            <div class="menu-item">
-                                <h3 class="name">@drinks.ToString()</h3>
-                                <p class="price">Price: @drinks.Price</p>
-                                <p class="cals">Calories: @drinks.Calories</p>
-                                @if (drinks.ToString().Contains("Large"))
-                                {
-                                    <hr id="sizeBreaker" />
-                                }
-                            </div>
-                        </li>
-                    }
-
-
-                }
-
-
-            }
-
-        </ul>
+<form id="menu-database">
+    <div id="search">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="Search">
     </div>
 
-    <div class="menu-disp-Entree">
-        <h2 class="Entrees">Entrees</h2>
-        <ul class="menu-list-entree">
-            @foreach (BleakwindBuffet.Data.IOrderItem entrees in BleakwindBuffet.Data.Menu.Entrees())
-            {
-                <li>
-                    <div class="menu-item">
-                        <h3 class="name">@entrees.ToString()</h3>
-                        <p class="price">Price: @entrees.Price</p>
-                        <p class="cals">Calories: @entrees.Calories</p>
-                        <hr id="sizeBreaker" />
-                    </div>
-                </li>
-            }
-        </ul>
+
+    <div id="filters">
+        <h4>Category</h4>
+        @foreach (String cat in Menu.Category)
+        {
+            <label>
+                <input type="checkbox" name="Category" value="@cat" checked="@Model.Category.Contains(cat)" />
+                @cat
+            </label>
+        }
+
+        <h4>Price</h4>
+        <div>
+            Between
+            <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="min" />
+            and
+            <input name="PriceMax" type="number" min="0" max="10" step="0.1" placeholder="min" />
+        </div>
+        <h4>Calories</h4>
+        <div>
+            Between
+            <input name="CaloriesMin" type="number" min="0" max="1000" step="1" placeholder="min" />
+            and
+            <input name="CaloriesMax" type="number" min="0" max="1000" step="1" placeholder="min" />
+        </div>
 
 
     </div>
 
-    <div class="menu-disp-Sides">
-        <h2 class="Sides">Sides</h2>
-        <ul class="menu-list-sides">
-            @foreach (BleakwindBuffet.Data.IOrderItem sides in BleakwindBuffet.Data.Menu.Sides())
+
+
+        <div class="menu-disp">
+            @if (Model.Menus.Count() != Menu.All.Count())
             {
-                <li>
-                    <div class="menu-item">
-                        <h3 class="name">@sides.ToString()</h3>
-                        <p class="price">Price: @sides.Price</p>
-                        <p class="cals">Calories: @sides.Calories</p>
-                        @if (sides.ToString().Contains("Large"))
+                <div class="menu-disp-Search">
+                    <h2 class="Search">Search</h2>
+                    <ul class="menu-list-search">
+                        @foreach (IOrderItem items in Model.Menus)
                         {
-                            <hr id="sizeBreaker" />
+                            <li>
+                                <div class="menu-item">
+                                    <h3 class="name">@items.ToString()</h3>
+                                    <p class="price">Price: @items.Price</p>
+                                    <p class="cals">Calories: @items.Calories</p>
+                                    <hr id="sizeBreaker" />
+                                </div>
+                            </li>
                         }
-                    </div>
-                </li>
+                    </ul>
+
+
+                </div>
+
+
+
             }
-        </ul>
-    </div>
+            else
+            {
+                <div class="menu-disp-drinks">
+                    <h2 class="Drinks">Drinks</h2>
+                    <ul class="list-drinks">
+                        @{
+                            bool printed = false;
+                        }
+                        @foreach (IOrderItem drinks in BleakwindBuffet.Data.Menu.Drinks())
+                        {
+                            @if (drinks.ToString().Contains("Sailor") && printed == false)
+                            {
 
 
-</div>
+                                <li display="block">
+                                    <div class="menu-item">
+                                        @if (drinks is BleakwindBuffet.Data.Drinks.SailorSoda soda)
+                                        {
+                                            <h3 class="name">
+                                                @soda.Size Sailor Soda
+                                            </h3>
+                                        }
+
+                                        <h4>Flavors Available</h4>
+                                        <ol>
+                                            <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry</li>
+                                            <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit</li>
+                                            <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Lemon</li>
+                                            <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Peach</li>
+                                            <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon</li>
+                                        </ol>
+                                        <p class="price">Price: @drinks.Price</p>
+                                        <p class="cals">Calories: @drinks.Calories</p>
+                                        @if (drinks.ToString().Contains("Large"))
+                                        {
+                                            <hr id="sizeBreaker" />
+                                            printed = true;
+                                        }
+                                    </div>
+                                </li>
+
+
+
+
+
+
+
+
+
+                            }
+                            else
+                            {
+
+                                @if ((drinks.ToString().Contains("Sailor") == false))
+                                {
+                                    <li display="block">
+                                        <div class="menu-item">
+                                            <h3 class="name">@drinks.ToString()</h3>
+                                            <p class="price">Price: @drinks.Price</p>
+                                            <p class="cals">Calories: @drinks.Calories</p>
+                                            @if (drinks.ToString().Contains("Large"))
+                                            {
+                                                <hr id="sizeBreaker" />
+                                            }
+                                        </div>
+                                    </li>
+                                }
+
+
+                            }
+
+
+                        }
+
+                    </ul>
+                </div>
+
+                <div class="menu-disp-Entree">
+                    <h2 class="Entrees">Entrees</h2>
+                    <ul class="menu-list-entree">
+                        @foreach (BleakwindBuffet.Data.IOrderItem entrees in BleakwindBuffet.Data.Menu.Entrees())
+                        {
+                            <li>
+                                <div class="menu-item">
+                                    <h3 class="name">@entrees.ToString()</h3>
+                                    <p class="price">Price: @entrees.Price</p>
+                                    <p class="cals">Calories: @entrees.Calories</p>
+                                    <hr id="sizeBreaker" />
+                                </div>
+                            </li>
+                        }
+                    </ul>
+
+
+                </div>
+
+                <div class="menu-disp-Sides">
+                    <h2 class="Sides">Sides</h2>
+                    <ul class="menu-list-sides">
+                        @foreach (BleakwindBuffet.Data.IOrderItem sides in BleakwindBuffet.Data.Menu.Sides())
+                        {
+                            <li>
+                                <div class="menu-item">
+                                    <h3 class="name">@sides.ToString()</h3>
+                                    <p class="price">Price: @sides.Price</p>
+                                    <p class="cals">Calories: @sides.Calories</p>
+                                    @if (sides.ToString().Contains("Large"))
+                                    {
+                                        <hr id="sizeBreaker" />
+                                    }
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+
+
+
+        </div>
+</form>
