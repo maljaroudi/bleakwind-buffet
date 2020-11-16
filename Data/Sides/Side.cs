@@ -18,6 +18,11 @@ namespace BleakwindBuffet.Data.Sides
     public abstract class Side : IOrderItem, INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// Abstract for the Description of each entree derived from IOrderItem
+        /// </summary>
+        public abstract string Description { get; }
+
         private Size _size = Size.Small;
         /// <summary>
         /// Size of the side. Can be small, medium or large

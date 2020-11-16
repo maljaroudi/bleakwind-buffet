@@ -101,5 +101,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 
 
         }
+
+
+        [Fact]
+        public void ShouldDisplayCorrectDescription()
+        {
+            DragonbornWaffleFries side = new DragonbornWaffleFries();
+            Assert.Equal("Crispy fried potato waffle fries.", side.Description);
+        }
     }
 }

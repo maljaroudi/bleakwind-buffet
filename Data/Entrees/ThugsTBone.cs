@@ -17,6 +17,13 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThugsTBone : Entree, INotifyPropertyChanged
     {
+
+
+        /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Juicy T-Bone, not much else to say.";
+
         /// <summary>
         /// Price initalizer, sets the price for the entree
         /// </summary>

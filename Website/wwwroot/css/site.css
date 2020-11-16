@@ -83,7 +83,7 @@ body{
 
 /*Code borrowed from Code borrowed from: https://codepen.io/peterhry/pen/jdrgp */
 .starburst {
-    font: 4em/1.4 'Lobster', georgia, serif;
+    font: 4em/1.2 'Lobster', georgia, serif;
     background: #202020;
     width: 2.5em;
     height: 2.5em;
@@ -134,9 +134,10 @@ body{
 
 .example {
     position: absolute;
-    top: 50%;
-    margin-top: -1.25em;
-    margin-left: -1.25em;
+    top: auto;
+    left: auto;
+    margin-top: -1.00em;
+    margin-left: -1.00em;
 }
 
 
@@ -150,7 +151,7 @@ body{
 
 #starbust-break {
     display: block;
-    margin: 2px 0;
+    margin: 1px 0;
     font-size: 50%;
     background: inherit;
     color: crimson;
@@ -207,4 +208,69 @@ ul.menu-list-drinks > li {
 
 #sizeBreaker {
     border: 1px solid red;
+}
+
+.description {
+    color: darkorange;
+    font-size: small;
+}
+
+
+
+
+@media (orientation: landscape) {
+    h2 {
+        color: green;
+    }
+
+}
+
+@media (orientation: portrait) {
+    h2 {
+        color: orange;
+    }
+
+    .starburst {
+        font: 2.5em/1.2 'Lobster', georgia, serif;
+        background: #202020;
+        width: 2.5em;
+        height: 2.5em;
+        text-align: center;
+        color: #fff;
+    }
+}
+
+
+
+@media(max-width: 490) {
+    .menu-disp {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 25%;
+    }
+
+
+}
+
+@media(min-width: 491px) {
+    .menu-disp-Sides {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+    }
+
+    .menu-disp-drinks {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+    }
+    .menu-disp-Entree {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+    }
+    
+
+
+
 }

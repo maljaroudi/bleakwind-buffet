@@ -186,6 +186,7 @@ namespace BleakwindBuffet.Data
         public static IEnumerable<IOrderItem> All { get { return FullMenu(); } }
 
         /// <summary>
+        /// !!!!!DEPRECATED!!!!!
         /// Method for search, takes in the term and return the matching by going through the full list. 
         /// </summary>
         /// <param name="terms"></param>
@@ -210,6 +211,7 @@ namespace BleakwindBuffet.Data
         }
 
         /// <summary>
+        /// !!!!!DEPRECATED!!!!!
         /// Implementation to filter the list by category, checks the original class and category passed in to return a list of maching menu items
         /// </summary>
         /// <param name="cat">category from query</param>

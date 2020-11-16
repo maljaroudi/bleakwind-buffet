@@ -103,5 +103,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 
 
         }
+
+
+        [Fact]
+        public void ShouldDisplayCorrectDescription()
+        {
+            VokunSalad side = new VokunSalad();
+            Assert.Equal("A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.", side.Description);
+        }
     }
 }

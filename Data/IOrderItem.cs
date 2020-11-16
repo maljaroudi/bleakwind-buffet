@@ -35,8 +35,10 @@ namespace BleakwindBuffet.Data
         List<String> SpecialInstructions { get; }
 
 
-
-
+        /// <summary>
+        /// Description for Entrees, Sides, and Drinks
+        /// </summary>
+        string Description { get; }
 
 
 

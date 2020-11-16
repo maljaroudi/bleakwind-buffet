@@ -18,6 +18,11 @@ namespace BleakwindBuffet.Data.Entrees
     public abstract class Entree : IOrderItem
     {
         /// <summary>
+        /// Abstract for the Description of each entree derived from IOrderItem
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
         /// Price of the drink in USD
         /// </summary>
         public abstract double Price { get; }

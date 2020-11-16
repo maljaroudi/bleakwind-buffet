@@ -103,5 +103,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 
 
         }
+
+
+        [Fact]
+        public void ShouldDisplayCorrectDescription()
+        {
+            MadOtarGrits side = new MadOtarGrits();
+            Assert.Equal("Cheesey Grits.", side.Description);
+        }
+
+
+
     }
 }

@@ -15,6 +15,14 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class WarriorWater : Drink
     {
+
+
+        /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "It’s water. Just water.";
+
+
         /// <summary>
         /// Price, set to 0 accross all options.
         /// </summary>

@@ -18,7 +18,10 @@ namespace BleakwindBuffet.Data.Sides
     {
 
 
-
+        /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Crispy fried potato waffle fries.";
 
 
 

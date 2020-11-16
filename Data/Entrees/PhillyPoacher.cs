@@ -17,6 +17,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class PhillyPoacher : Entree, INotifyPropertyChanged
     {
         /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+
+        /// <summary>
         /// Price initalizer for price set across all options
         /// </summary>
         public override double Price { get; } = 7.23;

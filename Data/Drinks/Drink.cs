@@ -18,6 +18,13 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// Abstract for the Description of each entree derived from IOrderItem
+        /// </summary>
+        public abstract string Description { get; }
+
+
         private Size _size = Size.Small;
         /// <summary>
         /// Size of the drink. Can be small, medium or large

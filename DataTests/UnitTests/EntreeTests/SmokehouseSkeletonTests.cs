@@ -154,5 +154,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
 
         }
+
+
+
+        [Fact]
+        public void ShouldDisplayCorrectDescription()
+        {
+            SmokehouseSkeleton entree = new SmokehouseSkeleton();
+            Assert.Equal("Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.", entree.Description);
+        }
+
     }
 }

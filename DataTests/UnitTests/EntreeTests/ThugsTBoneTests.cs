@@ -57,5 +57,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         //No Property Change test since there is no one to begin with.
+
+
+
+        [Fact]
+        public void ShouldDisplayCorrectDescription()
+        {
+            ThugsTBone entree = new ThugsTBone();
+            Assert.Equal("Juicy T-Bone, not much else to say.", entree.Description);
+        }
     }
 }

@@ -13,11 +13,21 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+
     /// <summary>
     /// Provides the Sailor Soda product detail
     /// </summary>
     public class SailorSoda : Drink
     {
+
+
+        /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.";
+
+
+
         /// <summary>
         /// Price in relation to size.
         /// </summary>

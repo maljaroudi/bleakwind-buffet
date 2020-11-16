@@ -81,6 +81,7 @@
                             <li>
                                 <div class="menu-item">
                                     <h3 class="name">@items.ToString()</h3>
+                                    <h5 class="description">@items.Description</h5>
                                     <p class="price">Price: @items.Price</p>
                                     <p class="cals">Calories: @items.Calories</p>
                                     <hr id="sizeBreaker" />
@@ -117,7 +118,7 @@
                                                 @soda.Size Sailor Soda
                                             </h3>
                                         }
-
+                                        <h5 class="description">@drinks.Description</h5>
                                         <h4>Flavors Available</h4>
                                         <ol>
                                             <li>@BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry</li>
@@ -153,6 +154,7 @@
                                     <li display="block">
                                         <div class="menu-item">
                                             <h3 class="name">@drinks.ToString()</h3>
+                                            <h5 class="description">@drinks.Description</h5>
                                             <p class="price">Price: @drinks.Price</p>
                                             <p class="cals">Calories: @drinks.Calories</p>
                                             @if (drinks.ToString().Contains("Large"))
@@ -180,6 +182,7 @@
                             <li>
                                 <div class="menu-item">
                                     <h3 class="name">@entrees.ToString()</h3>
+                                    <h5 class="description">@entrees.Description</h5>
                                     <p class="price">Price: @entrees.Price</p>
                                     <p class="cals">Calories: @entrees.Calories</p>
                                     <hr id="sizeBreaker" />
@@ -199,6 +202,7 @@
                             <li>
                                 <div class="menu-item">
                                     <h3 class="name">@sides.ToString()</h3>
+                                    <h5 class="description">@sides.Description</h5>
                                     <p class="price">Price: @sides.Price</p>
                                     <p class="cals">Calories: @sides.Calories</p>
                                     @if (sides.ToString().Contains("Large"))

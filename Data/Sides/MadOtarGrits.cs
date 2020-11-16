@@ -16,6 +16,13 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class MadOtarGrits : Side, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Cheesey Grits.";
+
+
         /// <summary>
         /// Price in relation to the size.
         /// </summary>

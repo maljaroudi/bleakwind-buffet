@@ -15,6 +15,15 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class MarkarthMilk : Drink
     {
+
+
+        /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Hormone-free organic 2% milk.";
+
+
+
         /// <summary>
         /// Price in relation to size of the drink
         /// </summary>

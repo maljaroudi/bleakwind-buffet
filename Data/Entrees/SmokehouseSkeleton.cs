@@ -17,6 +17,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class SmokehouseSkeleton : Entree, INotifyPropertyChanged
     {
         /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+
+        /// <summary>
         /// Price initalizer sets it across all options
         /// </summary>
         public override double Price { get;  } = 5.62;

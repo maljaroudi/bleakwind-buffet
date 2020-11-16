@@ -15,6 +15,13 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class FriedMiraak : Side, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Perfectly prepared hash brown pancakes.";
+
+
         /// <summary>
         /// Price in relation to the size
         /// </summary>

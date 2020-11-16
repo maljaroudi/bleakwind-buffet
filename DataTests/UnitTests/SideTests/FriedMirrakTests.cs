@@ -103,5 +103,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 
 
         }
+
+
+        [Fact]
+        public void ShouldDisplayCorrectDescription()
+        {
+            FriedMiraak side = new FriedMiraak();
+            Assert.Equal("Perfectly prepared hash brown pancakes.", side.Description);
+        }
+
+
     }
 }

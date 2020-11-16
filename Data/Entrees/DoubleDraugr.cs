@@ -17,6 +17,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class DoubleDraugr : Entree, INotifyPropertyChanged
     {
         /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
+
+        /// <summary>
         /// Price, set privately across all options
         /// </summary>
         public override double Price { get;  } = 7.32;

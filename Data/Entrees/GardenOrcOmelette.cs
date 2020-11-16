@@ -17,6 +17,10 @@ namespace BleakwindBuffet.Data.Entrees
     public class GardenOrcOmelette : Entree , INotifyPropertyChanged
     {
         /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+        /// <summary>
         /// Price initializer and property, set to the price for all options
         /// </summary>
         public override double Price { get;  } = 4.57;

@@ -15,6 +15,12 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThalmorTriple : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// override for the abstract and IOrderItem property implementation. Shows the description of the item
+        /// </summary>
+        public override string Description { get; } = "Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
+
         /// <summary>
         /// Price initalizer sets it across all options
         /// </summary>

@@ -17,6 +17,9 @@ namespace BleakwindBuffet.Data
         private Side side = null;
         private Entree entree = null;
 
+
+        public string Description { get; }
+
         public Entree Entree
         {
             get
